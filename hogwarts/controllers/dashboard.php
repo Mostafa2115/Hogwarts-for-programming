@@ -1,2 +1,3 @@
 <?php
-    require '../views/dashboard.view.php';
+    $header = 'Dashboard';
+    require 'views/dashboard.view.php';
