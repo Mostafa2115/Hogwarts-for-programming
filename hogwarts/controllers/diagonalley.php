@@ -1,3 +1,3 @@
 <?php
     $header = 'Diagon Alley';
-    require '../views/diagonalley.view.php';
+    require 'views/diagonalley.view.php';
