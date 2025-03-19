@@ -1,6 +1,8 @@
 <?php
 
-$url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+$path = "/php/Hogwarts-for-programming/hogwarts/controllers";
+
+$url = parse_url($_SERVER['REQUEST_URI'])['path'];
 
 $routes = [
     "$path/" => "controllers/home.php",
@@ -11,7 +13,7 @@ $routes = [
 ];
 
 if (array_key_exists($url, $routes)) {
-    echo require $routes[$url];
+    return require $routes[$url];
 } else {
     http_response_code(404);
     echo "404 Not Found";
