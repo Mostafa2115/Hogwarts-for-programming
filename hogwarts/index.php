@@ -1,4 +1,5 @@
 <?php
-    $path = "/php/Hogwarts-for-programming/hogwarts/controllers";
+    require 'Database.php';
+    require 'connection.php';
     require 'router.php';
 ?>

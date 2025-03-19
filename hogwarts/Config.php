@@ -2,12 +2,10 @@
 
 return [
     'database' => [
-        'db' => [
-            'host' => 'localhost',
-            'dbname' => 'hogwarts',
-            'user' => 'root',
-            'password' => ''
-        ]
+        'host' => 'localhost',
+        'dbname' => 'hogwarts',
+        'user' => 'root',
+        'password' => '10112003Ma.'
     ]
 ];
 
