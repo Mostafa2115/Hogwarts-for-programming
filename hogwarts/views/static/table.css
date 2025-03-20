@@ -1,0 +1,89 @@
+.main-container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 25px;
+    color: black;
+    box-shadow: 0px 4px 8px #777777;
+    border: 2px solid black;
+    text-align: center;
+}
+
+/* Flexbox to Arrange Image & Table */
+.content-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Left: Hufflepuff Image */
+/* Fix the image in the top-left corner */
+.image-container {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 150px; /* Adjust size as needed */
+    z-index: 1000; /* Keep it above other elements */
+}
+
+.image-container img {
+    width: 100%;
+    max-width: 150px; /* Adjust based on preference */
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Right: Table */
+.table-container {
+    width: 100%;
+}
+
+/* Table Styling */
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 2px solid black;
+    background-color: #ffeb3b;
+    border-radius: 15px;
+    box-shadow: 0px 4px 8px #777777;
+    overflow: hidden;
+}
+
+.custom-table th, .custom-table td {
+    border: 2px solid black;
+    padding: 15px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.custom-table th {
+    background-color: #212121;
+    color: white;
+}
+
+.custom-table tr:nth-child(even) {
+    background-color: #f8f8f8;
+}
+
+.custom-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Responsive: Stack Image & Table on Smaller Screens */
+@media (max-width: 768px) {
+    .content-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .image-container,
+    .table-container {
+        width: 100%;
+    }
+
+    .image-container img {
+        max-width: 200px;
+    }
+}

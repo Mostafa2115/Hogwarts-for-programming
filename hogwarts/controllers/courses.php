@@ -10,6 +10,10 @@
         }
         public function getCourses()
         {
+            if (!isset($_SESSION["username"])) {
+                header("Location: ../views/login.view.php");
+                exit;
+            }
             $header = 'Courses';
             $courses = $this->db->query('SELECT * FROM courses')->fetchAll(PDO::FETCH_OBJ);
             return require 'views/courses.view.php';

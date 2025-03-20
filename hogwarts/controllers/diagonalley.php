@@ -10,6 +10,10 @@
         }
         public function getDiagonAlley()
         {
+            if (!isset($_SESSION["username"])) {
+                header("Location: ../views/login.view.php");
+                exit;
+            }
             $header = 'Diagon Alley';
             $items = $this->db->query('SELECT * FROM diagon_alley')->fetchAll(PDO::FETCH_OBJ);
             return require 'views/diagonalley.view.php';

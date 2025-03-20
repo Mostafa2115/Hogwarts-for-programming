@@ -8,6 +8,10 @@
         }
         public function getHome()
         {
+            if (!isset($_SESSION["username"])) {
+                header("Location: ../views/login.view.php");
+                exit;
+            }
             $header = 'Home';
             return require 'views/home.view.php';
         }

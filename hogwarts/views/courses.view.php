@@ -1,29 +1,38 @@
 <?php
     require 'layouts/header.view.php';
     require 'layouts/nav.view.php';
-    
 ?>
-<!--body of the page-->
-<main >
-    <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
-        <table class="w-full border-collapse border border-gray-300 shadow-lg rounded-lg">
-            <thead class="bg-gray-100">
-                <tr>
-                    <th class="border border-gray-300 px-4 py-2 text-left">Course ID</th>
-                    <th class="border border-gray-300 px-4 py-2 text-left">Course Name</th>
-                    <th class="border border-gray-300 px-4 py-2 text-left">Professor ID</th>
-                </tr>
-            </thead>
-            <tbody class="divide-y divide-gray-200">
-                <?php foreach ($courses as $course) : ?>
-                    <tr class="hover:bg-gray-50">
-                        <td class="border border-gray-300 px-4 py-2"><?= htmlspecialchars($course->id); ?></td>
-                        <td class="border border-gray-300 px-4 py-2"><?= htmlspecialchars($course->course_name); ?></td>
-                        <td class="border border-gray-300 px-4 py-2"><?= htmlspecialchars($course->professor_id); ?></td>
+<!-- Body of the page -->
+<main class="main-container">
+    <div class="content-wrapper">
+        <!-- Left Side: Hufflepuff Image -->
+        <div class="image-container">
+            <img src="../views/uploads/hufflepuff.jpg" alt="Hufflepuff Banner">
+        </div>
+
+        <!-- Right Side: Table -->
+        <div class="table-container">
+            <table class="custom-table">
+                <thead>
+                    <tr>
+                        <th>Course ID</th>
+                        <th>Course Name</th>
+                        <th>Professor ID</th>
                     </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    <?php foreach ($courses as $course) : ?>
+                        <tr>
+                            <td><?= htmlspecialchars($course->id); ?></td>
+                            <td><?= htmlspecialchars($course->course_name); ?></td>
+                            <td><?= htmlspecialchars($course->professor_id); ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
     </div>
 </main>
-<?php require 'layouts/footer.view.php';?>
+
+
+<?php require 'layouts/footer.view.php'; ?>
