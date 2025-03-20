@@ -1,0 +1,28 @@
+body {
+    background-image: url('../hogwarts/views/public/background.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    font-family: 'EB Garamond', serif;
+}
+
+
+table {
+    background-image: url("https://www.transparenttextures.com/patterns/axiom-pattern.png");
+    /* background-color: #3b2f2f; */
+    background-size: cover;
+    color: #FFD700; /* Gold text */
+    border: 2px solid #FFD700;
+    background-color: transparent;
+}
+
+thead,tr {
+    /* background-image: url("https://www.transparenttextures.com/patterns/axiom-pattern.png"); */
+    /* background-color: black; */
+    background-color: black;
+}
