@@ -1,3 +1,14 @@
 <?php
-    $header = 'Home';
-    require '../views/home.view.php';
+    class HomeController
+    {
+        private $db;
+        public function __construct($db)
+        {
+            $this->db = $db;
+        }
+        public function getHome()
+        {
+            $header = 'Home';
+            return require 'views/home.view.php';
+        }
+    }

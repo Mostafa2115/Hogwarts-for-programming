@@ -1,19 +1,30 @@
 <?php
+require 'controllers/courses.php';
+require 'controllers/leaderboard.php';
+require 'controllers/dashboard.php';
+require 'controllers/diagonalley.php';
+require 'controllers/home.php';
+require 'controllers/login.php';
+require 'controllers/signup.php';
 
 $path = "/php/Hogwarts-for-programming/hogwarts/controllers";
 
 $url = parse_url($_SERVER['REQUEST_URI'])['path'];
+$method = strtolower($_SERVER['REQUEST_METHOD']);
 
-$routes = [
-    "$path/" => "controllers/home.php",
-    "$path/courses" => "controllers/courses.php",
-    "$path/dashboard" => "controllers/dashboard.php",
-    "$path/diagonalley" => "controllers/diagonalley.php",
-    "$path/leaderboard" => "controllers/leaderboard.php",
-];
+$routes = require 'routes.php';
 
-if (array_key_exists($url, $routes)) {
-    return require $routes[$url];
+
+if (isset($routes[$method][$url])) {
+    $route = $routes[$method][$url];
+
+    if (is_array($route)) {
+        $controller = new $route[0]($db);
+        ob_end_clean();
+        return call_user_func([$controller, $route[1]]);
+    } else {
+        require $route;
+    }
 } else {
     http_response_code(404);
     echo "404 Not Found";

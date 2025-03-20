@@ -9,7 +9,7 @@
                     <div class="hidden md:block">
                         <div class="ml-10 flex items-baseline space-x-4">
                             <?php $path = "/php/Hogwarts-for-programming/hogwarts/controllers"; ?>
-                            <a href="<?php echo $path ?>/" class="rounded-md <?php echo $_SERVER['REQUEST_URI'] === $path.'/' ?  "bg-gray-900" : "text-gray-300" ?> px-3 py-2 text-sm font-medium text-white" aria-current="page">Home</a>
+                            <a href="<?php echo $path ?>/home" class="rounded-md <?php echo $_SERVER['REQUEST_URI'] === $path.'/' ?  "bg-gray-900" : "text-gray-300" ?> px-3 py-2 text-sm font-medium text-white" aria-current="page">Home</a>
                             <a href="<?php echo $path ?>/dashboard" class="rounded-md <?php echo $_SERVER['REQUEST_URI'] === $path.'/dashboard' ?  "bg-gray-900" : "text-gray-300" ?> px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Dashboard</a>
                             <a href="<?php echo $path ?>/courses" class="rounded-md <?php echo $_SERVER['REQUEST_URI'] === $path.'/courses' ?  "bg-gray-900" : "text-gray-300" ?> px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Courses</a>
                             <a href="<?php echo $path ?>/diagonalley" class="rounded-md <?php echo $_SERVER['REQUEST_URI'] === $path.'/diagonalley' ?  "bg-gray-900" : "text-gray-300" ?> px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Diagon Alley</a>
