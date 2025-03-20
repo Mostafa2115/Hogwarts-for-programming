@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title><?php echo $header ?></title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../views/static/nav.css">
+    <link rel="stylesheet" href="../views/static/header.css">
+    <link rel="stylesheet" href="../views/static/table.css">
 </head>
 <body>

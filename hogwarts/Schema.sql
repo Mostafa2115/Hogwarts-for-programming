@@ -5,6 +5,8 @@ use hogwarts;
 CREATE TABLE `Students` (
   `id` int PRIMARY KEY AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
+  `username` varchar(100) NOT NULL unique,
+  `hashedPassword` varchar(255) not null unique,
   `country_name` varchar(100) NOT NULL,
   `wand_id` int,
   `house_id` int
