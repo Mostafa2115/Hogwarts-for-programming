@@ -1,7 +1,8 @@
+<body>
 <div class="min-h-full">
     <nav class="nav-container">
         <div class="nav-links">
-            <?php $path = "/php/Hogwarts-for-programming/hogwarts/controllers"; ?>
+            <?php $path = "/php/Hogwarts-for-programming/hogwarts/controllers" ?>
             <a href="<?php echo $path ?>/home" class="<?php echo $_SERVER['REQUEST_URI'] === $path.'/home' ?  "active" : "" ?>">Home</a>
             <a href="<?php echo $path ?>/dashboard" class="<?php echo $_SERVER['REQUEST_URI'] === $path.'/dashboard' ?  "active" : "" ?>">Dashboard</a>
             <a href="<?php echo $path ?>/courses" class="<?php echo $_SERVER['REQUEST_URI'] === $path.'/courses' ?  "active" : "" ?>">Courses</a>
@@ -23,12 +24,16 @@
         <a href="<?php echo $path ?>/diagonalley">Diagon Alley</a>
         <a href="<?php echo $path ?>/leaderboard">Leader Board</a>
     </div>
-    <?php require 'banner.view.php'; ?>
 </div>
-
-<script>
-    function toggleMenu() {
-        var menu = document.getElementById('mobileNav');
-        menu.style.display = menu.style.display === "block" ? "none" : "block";
-    }
-</script>
+<main class="main-container">
+    <div class="content-wrapper">
+        <!-- Left Side: Hufflepuff Image -->
+        <div class="image-container">
+            <img src="../views/uploads/hufflepuff.jpg" alt="Hufflepuff Banner">
+        </div>
+        <script>
+            function toggleMenu() {
+                var menu = document.getElementById('mobileNav');
+                menu.style.display = menu.style.display === "block" ? "none" : "block";
+            }
+        </script>

@@ -3,10 +3,10 @@
     require 'layouts/nav.view.php';
 ?>
 <!-- Body of the page -->
-<main class="main-container">
-    <div class="main-content">
-        <p>Home</p>
-    </div>
+ <div>
+    <Button>
+        <a href="../views/addcourses.view.php">Add Course</a>
+    </Button>
 </main>
 
 <?php require 'layouts/footer.view.php'; ?>

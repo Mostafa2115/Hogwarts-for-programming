@@ -3,13 +3,6 @@
     require 'layouts/nav.view.php';
 ?>
 <!-- Body of the page -->
-<main class="main-container">
-    <div class="content-wrapper">
-        <!-- Left Side: Hufflepuff Image -->
-        <div class="image-container">
-            <img src="../views/uploads/hufflepuff.jpg" alt="Hufflepuff Banner">
-        </div>
-
         <!-- Right Side: Table -->
         <div class="table-container">
             <table class="custom-table">
@@ -17,7 +10,8 @@
                     <tr>
                         <th>Course ID</th>
                         <th>Course Name</th>
-                        <th>Professor ID</th>
+                        <th>Description</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -25,7 +19,10 @@
                         <tr>
                             <td><?= htmlspecialchars($course->id); ?></td>
                             <td><?= htmlspecialchars($course->course_name); ?></td>
-                            <td><?= htmlspecialchars($course->professor_id); ?></td>
+                            <td><?= htmlspecialchars($course->Description); ?></td>
+                            <td>
+                                <a href="../controllers/courses/edit/{<?= $course->id; ?>}" class="btn btn-primary">Edit</a>
+                                <a href="../views/editcourses.view.php/<?= $course->id; ?>" class="btn btn-danger">Delete</a>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
@@ -33,6 +30,5 @@
         </div>
     </div>
 </main>
-
 
 <?php require 'layouts/footer.view.php'; ?>
