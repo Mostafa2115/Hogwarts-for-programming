@@ -7,7 +7,7 @@ require 'controllers/home.php';
 require 'controllers/login.php';
 require 'controllers/signup.php';
 
-$path = "/php/Hogwarts-for-programming/hogwarts/controllers";
+$path = "/hogwarts";
 
 $url = parse_url($_SERVER['REQUEST_URI'])['path'];
 $method = strtolower($_SERVER['REQUEST_METHOD']);
