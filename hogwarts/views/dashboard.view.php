@@ -4,7 +4,6 @@
     
 ?>
 <!--body of the page-->
-<main class="main-container">
     <div class="main-content">
         <table class="custom-table">
             <thead>

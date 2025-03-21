@@ -3,6 +3,7 @@
     class SignupController
     {
         private $db;
+        public $header = "Signup";
         public function __construct($db)
         {
             $this->db = $db;
@@ -14,13 +15,14 @@
                 echo "Method Not Allowed";
                 return;
             }
-
+            $name = trim($_POST["name"]);
+            $email = trim($_POST["email"]);
             $username = trim($_POST["username"]);
             $password = trim($_POST["password"]);
 
-            if (empty($username) || empty($password) ) {
+            if (empty($username) || empty($password) || empty($name) || empty($email)) {
                 $_SESSION["error"] = "All fields are required!";
-                header("Location: /php/Hogwarts-for-programming/hogwarts/views/signup.view.php");
+                header("Location: ../views/signup.view.php");
                 exit;
             }
 
@@ -31,15 +33,15 @@
 
             if ($user) {
                 $_SESSION["error"] = "Username already exists!";
-                header("Location: /php/Hogwarts-for-programming/hogwarts/views/signup.view.php");
+                header("Location: ../views/signup.view.php");
                 exit;
             }
 
-            $stmt = $this->db->prepare("INSERT INTO students (name,username,hashedPassword,country_name) VALUES (?,?,?,?)");
-            $stmt->execute([$username,$username, password_hash($password, PASSWORD_DEFAULT), 'Egypt']);
+            $stmt = $this->db->prepare("INSERT INTO students (name,username,email,hashedPassword,country_name) VALUES (?,?,?,?,?)");
+            $stmt->execute([$name,$username,$email,password_hash($password, PASSWORD_DEFAULT), 'Egypt']);
 
             $_SESSION["username"] = $username;
-            header("Location: /php/Hogwarts-for-programming/hogwarts/views/login.view.php");
+            header("Location: ../views/login.view.php");
             exit;
         }
     }

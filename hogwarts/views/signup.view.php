@@ -15,7 +15,7 @@
         }
         ?>
     </div>
-    <form class="Register" action="/php/Hogwarts-for-programming/hogwarts/controllers/signup" method="POST">
+    <form class="Register" action="../controllers/signup" method="POST">
     <input type="text" name="name" placeholder="Name" />
     <br /><br />
     <input type="text" name="username" placeholder="Username" />
