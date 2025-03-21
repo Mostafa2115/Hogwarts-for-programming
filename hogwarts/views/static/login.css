@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 * {
     margin: 0;
     padding: 0;
@@ -73,3 +74,69 @@ input[type="submit"]:hover {
 .sub {
     text-align: center;
 }
+=======
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #212121;
+    color: white;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  .Register {
+    margin: auto;
+    background-color: #ffeb3b;
+    width: 300px;
+    border-radius: 25px;
+    border: 2px solid #454545;
+    box-shadow: 0px 4px 8px #4a4a4a;
+    color: black;
+    padding: 20px 30px;
+  }
+  
+  input {
+    border: 2px solid #323232;
+    padding: 10px 20px;
+    outline: none;
+    border-radius: 25px;
+    width: 100%;
+  }
+  
+  input:focus {
+    border: 2px #777777 solid;
+  }
+  
+  .sub {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  input[type="submit"] {
+    background-color: white;
+    padding: 10px 20px;
+    border-radius: 50px;
+    margin: 0 auto;
+    width: 100px;
+    cursor: pointer;
+  }
+  
+  .Login {
+    margin: 50px auto 20px;
+    background-color: #ffeb3b;
+    border-radius: 25px;
+    width: 300px;
+    border-color: black;
+    color: black;
+    padding: 30px 20px;
+    box-shadow: 0px 4px 8px #777777;
+  }
+  
+  h1 {
+    text-align: center;
+    font-size: 50px;
+  }
+  
+>>>>>>> origin/main

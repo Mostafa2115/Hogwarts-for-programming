@@ -5,6 +5,9 @@ use hogwarts;
 CREATE TABLE `Students` (
   `id` int PRIMARY KEY AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
+  `username` varchar(100) NOT NULL unique,
+  `email` varchar(100) NOT NULL unique,
+  `hashedPassword` varchar(255) not null unique,
   `country_name` varchar(100) NOT NULL,
   `wand_id` int,
   `house_id` int
@@ -25,12 +28,15 @@ CREATE TABLE `Houses` (
 CREATE TABLE `Courses` (
   `id` int PRIMARY KEY AUTO_INCREMENT,
   `course_name` varchar(100) NOT NULL,
+  `Description` varchar(250) NOT NULL,
   `professor_id` int
 );
 
 CREATE TABLE `Professors` (
   `id` int PRIMARY KEY AUTO_INCREMENT,
-  `name` varchar(100) NOT NULL,
+  `username` varchar(100) NOT NULL unique,
+  `email` varchar(100) NOT NULL unique,
+  `hashedPassword` varchar(255) not null unique,
   `role` ENUM('professor','admin')
 );
 

@@ -3,7 +3,7 @@
 
 class LoginController {
     private $db;
-
+    public $header = "Login";
     public function __construct($db) {
         $this->db = $db;
     }
@@ -21,7 +21,7 @@ class LoginController {
 
         if (empty($username) || empty($password)) {
             $_SESSION["error"] = "All fields are required!";
-            header("Location: /php/Hogwarts-for-programming/hogwarts/views/login.view.php");
+            header("Location: ../views/login.view.php");
             exit;
         }
 
@@ -31,11 +31,11 @@ class LoginController {
 
         if ($user && password_verify($password, $user["hashedPassword"])) {
             $_SESSION["username"] = $username;
-            header("Location: /php/Hogwarts-for-programming/hogwarts/controllers/dashboard");
+            header("Location: ../controllers/home");
             exit;
         } else {
             $_SESSION["error"] = "Invalid username or password!";
-            header("Location: /php/Hogwarts-for-programming/hogwarts/views/login.view.php");
+            header("Location: ../views/login.view.php");
             exit;
         }
     }

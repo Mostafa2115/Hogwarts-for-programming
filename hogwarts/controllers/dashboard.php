@@ -3,18 +3,19 @@
     class DashboardController
     {
         private $db;
+        public $header = 'Dashboard';
         public function __construct($db)
         {
-            $this->db = $db;
-        }
-        public function getDashboard()
-        {
+            session_start();
             if (!isset($_SESSION["username"])) {
                 header("Location: ../views/login.view.php");
                 exit;
             }
+            $this->db = $db;
+        }
+        public function getDashboard()
+        {
 
-            $header = 'Dashboard';
             $students = $this->db->query('SELECT * FROM students s 
                 join Wands W ON s.wand_id = W.id 
                 join Houses H ON s.house_id = H.id')->fetchAll(PDO::FETCH_OBJ);

@@ -7,18 +7,20 @@ return [
         "$path/dashboard" => [DashboardController::class, "getDashboard"],
         "$path/diagonalley" => [DiagonAlleyController::class, "getDiagonAlley"],
         "$path/leaderboard" => [LeaderboardController::class, "getLeaderboard"],
+        "$path/courses/edit/" => [CoursesController::class, "getCourseById"],
     ],
     "post" => [
         "$path/signup" => [SignupController::class, "postSignup"],
         "$path/login" => [LoginController::class, "postLogin"],
-        "$path/logout" => "controllers/logout.php",
-        "$path/courses" => "controllers/addCourse.php",
+        "$path/logout" => [LoginController::class, "postLogout"],
+        "$path/courses" => [CoursesController::class, "addCourse"],
+        "$path/diagonalley" => [DiagonAlleyController::class, "buyItem"],
     ],
     "put" => [
-        "$path/courses" => "controllers/updateCourse.php",
+        "$path/courses/edit" => [CoursesController::class, "editCourse"],
     ],
     "delete" => [
-        "$path/courses" => "controllers/deleteCourse.php",
+        "$path/courses" => [CoursesController::class, "deleteCourse"],
     ],
 ];
 

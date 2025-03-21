@@ -7,7 +7,7 @@ require 'controllers/home.php';
 require 'controllers/login.php';
 require 'controllers/signup.php';
 
-$path = "/hogwarts";
+$path = (require 'Config.php')['path'];
 
 $url = parse_url($_SERVER['REQUEST_URI'])['path'];
 $method = strtolower($_SERVER['REQUEST_METHOD']);
@@ -21,6 +21,7 @@ if (isset($routes[$method][$url])) {
     if (is_array($route)) {
         $controller = new $route[0]($db);
         ob_end_clean();
+        $GLOBALS['header'] = $controller->header;
         return call_user_func([$controller, $route[1]]);
     } else {
         require $route;
