@@ -2,8 +2,10 @@
     require 'layouts/header.view.php';
     require 'layouts/nav.view.php';
 ?>
+<!-- Left Side: Hufflepuff Image -->
+
 <!--body of the page-->
-<div class="main-content">
+<div class="main-content bg-white p-4 shadow-sm">
     <table class="custom-table">
         <thead>
             <tr>

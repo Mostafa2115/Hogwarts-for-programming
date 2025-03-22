@@ -30,9 +30,9 @@ CREATE TABLE `Houses` (
 
 CREATE TABLE `Courses` (
   `id` int PRIMARY KEY AUTO_INCREMENT,
-  `course_name` varchar(100) NOT NULL DEFAULT 'Unknown',
-  `Description` varchar(250) NOT NULL DEFAULT 'Unknown',
-  `professor_id` int DEFAULT NULL
+  `course_name` varchar(100) NOT NULL,
+  `Description` varchar(250) NOT NULL,
+  `professor_id` int
 );
 
 CREATE TABLE `Professors` (
@@ -91,25 +91,29 @@ CREATE TABLE `Diagon_Alley` (
   `item_price` decimal(5,2) NOT NULL DEFAULT 0.00
 );
 
--- Add Foreign Keys
-ALTER TABLE `Students` ADD FOREIGN KEY (`house_id`) REFERENCES `Houses` (`id`);
-ALTER TABLE `Students` ADD FOREIGN KEY (`wand_id`) REFERENCES `Wands` (`id`);
+ALTER TABLE `Students` ADD FOREIGN KEY (`house_id`) REFERENCES `Houses` (`id`) ON DELETE CASCADE;
 
-ALTER TABLE `House_Points_Log` ADD FOREIGN KEY (`student_id`) REFERENCES `Students` (`id`);
-ALTER TABLE `House_Points_Log` ADD FOREIGN KEY (`house_id`) REFERENCES `Houses` (`id`);
+ALTER TABLE `Students` ADD FOREIGN KEY (`wand_id`) REFERENCES `Wands` (`id`) ON DELETE CASCADE;
 
-ALTER TABLE `Courses` ADD FOREIGN KEY (`professor_id`) REFERENCES `Professors` (`id`);
+ALTER TABLE `House_Points_Log` ADD FOREIGN KEY (`student_id`) REFERENCES `Students` (`id`) ON DELETE CASCADE;
 
-ALTER TABLE `Challenges` ADD FOREIGN KEY (`course_id`) REFERENCES `Courses` (`id`);
+ALTER TABLE `House_Points_Log` ADD FOREIGN KEY (`house_id`) REFERENCES `Houses` (`id`) ON DELETE CASCADE;
 
-ALTER TABLE `Student_Challenge_Attempts` ADD FOREIGN KEY (`student_id`) REFERENCES `Students` (`id`);
-ALTER TABLE `Student_Challenge_Attempts` ADD FOREIGN KEY (`challenge_id`) REFERENCES `Challenges` (`id`);
+ALTER TABLE `Courses` ADD FOREIGN KEY (`professor_id`) REFERENCES `Professors` (`id`) ON delete cascade;
 
-ALTER TABLE `Student_Items` ADD FOREIGN KEY (`student_id`) REFERENCES `Students` (`id`);
-ALTER TABLE `Student_Items` ADD FOREIGN KEY (`item_id`) REFERENCES `Diagon_Alley` (`item_id`);
+ALTER TABLE `Challenges` ADD FOREIGN KEY (`course_id`) REFERENCES `Courses` (`id`) ON delete cascade;
 
-ALTER TABLE `Student_Courses` ADD FOREIGN KEY (`student_id`) REFERENCES `Students` (`id`);
-ALTER TABLE `Student_Courses` ADD FOREIGN KEY (`course_id`) REFERENCES `Courses` (`id`);
+ALTER TABLE `Student_Challenge_Attempts` ADD FOREIGN KEY (`student_id`) REFERENCES `Students` (`id`) ON DELETE CASCADE;
+
+ALTER TABLE `Student_Challenge_Attempts` ADD FOREIGN KEY (`challenge_id`) REFERENCES `Challenges` (`id`) ON DELETE CASCADE;
+
+ALTER TABLE `Student_Items` ADD FOREIGN KEY (`student_id`) REFERENCES `Students` (`id`) ON DELETE CASCADE;
+
+ALTER TABLE `Student_Items` ADD FOREIGN KEY (`item_id`) REFERENCES `Diagon_Alley` (`item_id`) ON DELETE CASCADE;
+
+ALTER TABLE `Student_Courses` ADD FOREIGN KEY (`student_id`) REFERENCES `Students` (`id`) ON DELETE CASCADE;
+
+ALTER TABLE `Student_Courses` ADD FOREIGN KEY (`course_id`) REFERENCES `Courses` (`id`) ON DELETE CASCADE;
 
 -- Insert Data
 INSERT INTO Wands (wood, core) VALUES

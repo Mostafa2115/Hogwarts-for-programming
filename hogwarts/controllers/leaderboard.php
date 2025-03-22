@@ -6,7 +6,6 @@
         public $header = 'Leaderboard';
         public function __construct($db)
         {
-            session_start();
             if (!isset($_SESSION["username"])) {
                 header("Location: ../views/login.view.php");
                 exit;

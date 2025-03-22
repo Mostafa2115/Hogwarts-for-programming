@@ -2,9 +2,7 @@
     require 'layouts/header.view.php';
     require 'layouts/nav.view.php';
 ?>
-<!-- Body of the page -->
-        <!-- Right Side: Table -->
-        <div class="table-container">
+        <div class="table-container bg-white p-4">
             <table class="custom-table">
                 <thead>
                     <tr>
@@ -21,8 +19,13 @@
                             <td><?= htmlspecialchars($course->course_name); ?></td>
                             <td><?= htmlspecialchars($course->Description); ?></td>
                             <td>
-                                <a href="../controllers/courses/edit/{<?= $course->id; ?>}" class="btn btn-primary">Edit</a>
-                                <a href="../views/editcourses.view.php/<?= $course->id; ?>" class="btn btn-danger">Delete</a>
+                                <a href="../controllers/courses/<?= $course->id; ?>" class="btn btn-primary">Edit</a>
+                                <form action="../controllers/courses/delete/<?= $course->id; ?>" method="post">
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
+                        
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>

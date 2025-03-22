@@ -7,7 +7,6 @@ class CoursesController
 
     public function __construct($db)
     {
-        session_start();
         if (!isset($_SESSION["username"])) {
             header("Location: ../views/login.view.php");
             exit;
@@ -28,52 +27,32 @@ class CoursesController
         $course = $stmt->fetch(PDO::FETCH_OBJ);
         
         if (!$course) {
-            header("Location: ../views/courses.view.php");
+            echo "NOT FOUND";
             exit;
         }
 
-        require '../views/course.view.php';
+        require 'views/editcourses.view.php';
     }
 
     public function addCourse()
     {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST["name"], $_POST["Description"])) {
-            $stmt = $this->db->prepare('INSERT INTO courses (course_name, Description) VALUES (:name, :description)');
-            $stmt->execute([
-                'name' => $_POST["name"],
-                'description' => $_POST["Description"]
-            ]);
-            header('Location: ../controllers/courses');
-            exit;
-        }
-        
+        $stmt = $this->db->prepare('INSERT INTO courses (course_name, Description) VALUES (:name, :description)');
+        $stmt->execute([
+            'name' => $_POST["name"],
+            'description' => $_POST["Description"]
+        ]);
+        header('Location: ../controllers/courses');
+        exit;
     }
-
-    public function editCourse($id)
-    {
-        $stmt = $this->db->prepare('SELECT * FROM courses WHERE id = :id');
-        $stmt->execute(['id' => $id]);
-        $course = $stmt->fetch(PDO::FETCH_OBJ);
-
-        if (!$course) {
-            header("Location: ../views/courses.view.php");
-            exit;
-        }
-
-        require '../views/editcourse.view.php';
-    }
-
     public function updateCourse($id)
     {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST["name"], $_POST["Description"])) {
-            $stmt = $this->db->prepare('UPDATE courses SET course_name = :name, Description = :description WHERE id = :id');
-            $stmt->execute([
-                'id' => $id,
-                'name' => $_POST["name"],
-                'description' => $_POST["Description"]
-            ]);
-        }
-        header("Location: ../views/courses.view.php");
+        $stmt = $this->db->prepare('UPDATE courses SET course_name = :name, Description = :description WHERE id = :id');
+        $stmt->execute([
+            'id' => $id,
+            'name' => $_POST["name"],
+            'description' => $_POST["Description"]
+        ]);
+        header("Location: ../../../controllers/courses");
         exit;
     }
 
@@ -82,7 +61,7 @@ class CoursesController
         $stmt = $this->db->prepare('DELETE FROM courses WHERE id = :id');
         $stmt->execute(['id' => $id]);
 
-        header("Location: ../views/courses.view.php");
+        header("Location: ../../../controllers/courses");
         exit;
     }
 }
