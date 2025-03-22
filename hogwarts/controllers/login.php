@@ -35,7 +35,7 @@ class LoginController {
             exit;
         } else {
             $_SESSION["error"] = "Invalid username or password!";
-            header("Location: ../views/login.view.php");
+            header("Location: /views/login.view.php");
             exit;
         }
     }

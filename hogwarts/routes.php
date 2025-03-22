@@ -2,7 +2,7 @@
 
 return [
     "get" => [
-        "$path/home" => [HomeController::class, "getHome"],
+        "$path/home" => [HomeController::class, "getStudentProfile"],
         "$path/courses" => [CoursesController::class, "getCourses"],
         "$path/dashboard" => [DashboardController::class, "getDashboard"],
         "$path/diagonalley" => [DiagonAlleyController::class, "getDiagonAlley"],
