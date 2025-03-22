@@ -3,20 +3,21 @@
     require 'layouts/nav.view.php';
 ?>
 
-
-    <main class="max-w-7xl mx-auto py-12 pl-16 flex flex-col " style="background-image: url('../views/public/home\ background.png');">
-        <!-- Hero section -->
+<!-- Cedric Diggory -->
+<main class="max-w-7xl mx-auto py-12 pl-16 flex flex-col bg-cover bg-center bg-black" style="background-image: url(http://www.transparenttextures.com/patterns/brick-wall-dark.png);">       
+    <!-- Hero section -->
         <div class="flex flex-row justify-between">
             <!-- Student Info -->
             <div class="flex flex-col rounded-lg w-1/2">
                     <div class="space-y-6">
-                       <h2 class="text-4xl font-semibold text-[#d3a840] pt-4">Welcome back , Cedric Diggory</h2>
+                    <h2 class="text-4xl font-semibold text-[#d3a840] pt-4">Welcome back ,<?= htmlspecialchars($student->name)?></h2>
+                       
                        <div class="text-white pt-6 ">
                             <section class="text-lg leading-relaxed">
                                  <span class="relative">
                                       <span aria-hidden="true" class="text-4xl font-bold text-[#d3a840] drop-shadow-lg">Y</span>ou
                                  </span> 
-                                 probably know that some of Hufflepuff’s most renowned members include Cedric Diggory and Newt Scamander. But did you know that the Hufflepuff common room is the coziest in Hogwarts, located near the kitchens and filled with warm, earthy tones? Or that Hufflepuff’s house ghost, the Fat Friar, is the friendliest of them all, always ready to offer a kind word?
+                                 <?= htmlspecialchars($house -> house_description ) ?>   
                             </section>
                         
 
@@ -35,15 +36,16 @@
                           </div>
 
                           <div class="flex gap-10 flex-row text-white">
-                            <span class="text-sm">Hufflepuff</span>
-                            <span class="text-sm mr-4">Wand:</span>
+                            <span class="text-sm"><?= htmlspecialchars($house -> house_name ) ?>   
+                            </span>
+                            <span class="text-sm mr-4"><?= htmlspecialchars($wand->core)?></span>
                           </div>
                    
                         </div>
                         
 
                        <div class="flex flex-col text-white ">
-                            <p class="text-lg">Points: <span class="font-semibold text-[#d3a840]">150</span></p>
+                            <p class="text-lg">Points: <span class="font-semibold text-[#d3a840]"><?= htmlspecialchars((string) $totalScore) ?></span></p>
                             <p class="text-lg">Rank: <span class="font-semibold text-[#d3a840]">5th</span></p>
                        </div>
                     </div>
@@ -53,14 +55,14 @@
             </div>
 
             <div class="flex items-center">
-            <img src="../views/public/cedric.jpeg" alt="Student Avatar" class="h-2/3 border-4 border-[#d3a840]">
+            <img src="https://www.harrypotter.com/assets/_next/static/images/portrait-placeholder-ravenclaw-a71648607ca5870aa9422e54424d4491.gif" alt="Student Avatar" class="h-2/3 border-4 border-[#d3a840]">
             </div>
         </div>
         <!-- section -->
 
         <div class="flex pr-20 pt-12">
-        <!-- Recent Activities -->
-    <div class="flex bg-black w-full hover:opacity-50 text-white pt-6 rounded-lg flex-row">
+ <!-- Recent Activities -->
+ <div class="flex bg-black w-full hover:opacity-50 text-white pt-6 rounded-lg flex-row">
     <!-- Image -->
      <div>
      <img class ="w-fit h-fit rounded-full object-cover px-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAFqklEQVR4nO2YfWwTZRzHzwGi0cQsEAl3Y3eF9kqKHbu7bXfjZQXaAls7cHZ127E7Nlpgmy/oIjBAYIIgMl66yaCzFaKBTYn847bOaJRoAE1EY/wDcWNCAIOJ8Q00W4TtZ+7q5tr1nbJ1Cd/km9ye5+5+38/ze/p0KYJEKCNvsxpLbF8YeftJI2/bs5i3r9Hzqw16vnw6Mlak51cbDLztNyNvh6GWxgy8/fyYgFtcalMaefsFf4jgtu1BEk0mvjLZyNs+HtMQVqt1nKHEXj+mIZYUrSUiB0hACCNvL4sOIMEgDCW2Y9EDJBCEgbddjg3AF4JhmAmI1Tou4fa/ocQGCwtFmL+8GLilBcDozZCuWwLauYtAw+lATWf3kDTbS9IcDHE/SXE/kzT3rYrm3lUx7PNqag56z/e/gbeDzlIK2SYL0Po8eGLuQlAz2UODxW6K7VFSXEXc9/8CiwDs0gJIzzHCzIy58QlLB4X4Oi7B1enZc1Q0t1+TNc+/9WEtdWRWdg7Mnq8HKmcxaOcskP8mw3RKRXH/kOlsbsyhSYaZTFLcBhXFXowkZKY+D4xWEQorXoSy9dugqrYOXqpzwmaHC2oc7mGufv1Q8PA09yNJZy2KKbiCZadIq62iub9ChZY+lEuKy2Fl9Vao3nvYJ9zW+iZ42/0qfHdyLfzdZgG367VhABsONAVa9V9UFLslLS3tkZjCq2luhYpifw210rrlRVC+oRY2HvRdWWmlpaDfvFcFve0FAB35g77tWQ7H39oxDIL8f8W/Imm2SqPRPYrEKunoCrdVnt2xf1iIN5z74GzzOrjVWugT2t99Hcvg1LGXB59bv8/ZT9LcTjXDaZE4KCnA2TzML+xukIs7jhyA0yeq4ffWopCh/d3fsQw872z0Qhx0/YTEUyqKa5S/UEIA2Gp2ysWjCR3INQ63tAU/ReItqZ0kw25V0WyHimK/V9HsraEAljXrYJPDJYfoaV0Gh3eVg1hVKfvI7jJ5bCBkqPkaL0AdMlLS6XTjtdp5yefchdv/PJ4hh9hba4f6N93Q2XUJOru6wNHkgrpa2yBAqPk/TjDw5VHrZmSk1ddMXocWtRyCr6iE7u5uuHLlimzpumDVWii2r5ItXfvPr6io9AK2kNDXTF4bcQBoIa9JxaHDJK/wQacLfujslC1d73vFtwOB500yADSTV0cDIBda1Nf72nLl/ezcVQYrn6mS3bS7DHrbfD8Dgeb72nIBWtTXoJlcioyWbrZaP4r1BLr5QWE7MtoCj2lFzMdou7lotPMjcH7NBPCYL8cA0A2ndeORRBB4THngye+POLx0r8ecjySSwGPeFjmAeQuSiIITOECHOVRwgOOpgCSqwIkAHJsE4DEFCJ8HcPQxkO5BEhrAiQC4HwY4lQHQnuv1+wyA6yHvXKIBTF2ZymAicQgViEu2AvLO1bqJg0H9Lc3ZnyLvoCLehYp4Ayrg1KgFx0oJFhOIM5hIwICZnNm30zKzoGF1CvQ2Jg0G72lMkse0mVnALEi/PfQZTMQ/nyZMzxix4MrnlBNRAW/CRKLfNwgBSv3svoF/t/U6Cj7ZlCxbuh4Yl+7xfw4TCGmsUWPVPHhPw08tISejAv7ZsAD/mcibFfanFSJ3VsBnMa/PPl6smHJPwqMCOgkT8YshikPqkzPDAkj3hHoHJhIXUvnU5HjnfwAV8Q/DFIaUp5VhAaYVKcMBACoQbXFNjwmEEK6o7FIFkDQbAoAFTFCEf49IQIqA8/FJb0XGoQLRHRGASICKywz+KxuXEdE7MLkLeCeyHUm66/yooDBEWlTyjCEnjr9n5FARvwfzHrEL4wCA10dTVGFMCwqgMGqjAkAF3HHXAJhInIumKGHWBAXAzZroOiAQZ+LQAeJGNEVTLWTwI9RCRtkB4kYcAPDeaIqmlMwICiDNRbmFeu8a4L7uCwmpfwFy1L7SXOicowAAAABJRU5ErkJggg==" alt="minerva-mcgonagall">    
@@ -97,13 +99,51 @@
 
 <?php require 'layouts/footer.view.php';?>
 
-<!--  <div>
-            <h3 class="text-xl font-semibold text-yellow-600 mb-4">Recent Activities</h3>
-                <ul class="space-y-2 text-white">
-                    <li>Quiz 1: 15 points earned</li>
-                    <li>Course Challenge: 30 points earned</li>
-                    <li>Weekly Challenge: 50 points earned</li>
-                </ul> 
-                </div> -->
+<!-- 
+    codes for projects addition still need to make them added to test them
+Recent Activities
+<?php if ($challenges): ?>
+    <div class="flex bg-black w-full hover:opacity-50 text-white pt-6 rounded-lg flex-row">
+    Image
+     <div>
+     <img class ="w-fit h-fit rounded-full object-cover px-4" src="data:image/png;base64,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" alt="minerva-mcgonagall">    
+     </div>
+     Content
+    <div>
+    <?php foreach ($challenges as $challenge): ?>
+        <div class="challenge-card">
+            <h2 class="text-2xl font-semibold"><?= htmlspecialchars($challenge->name) ?></h2>
 
-              
+            Tags
+            <div class="flex space-x-2 mt-2">
+                <span class="bg-[#d3a840] text-white px-3 py-1 rounded-lg text-sm">
+                    <?= htmlspecialchars($challenge->points) ?> Points
+                </span>
+                <span class="bg-[#a17d25] text-white px-3 py-1 rounded-lg text-sm">
+                    Deadline: <?= htmlspecialchars($challenge->deadline) ?>
+                </span>
+            </div>
+
+            Description
+            <p class="text-gray-300 mt-3">
+                <?= nl2br(htmlspecialchars($challenge->description)) ?>
+            </p>
+        </div>
+    <?php endforeach; ?>
+<?php endif; ?>
+    </div>
+</div>
+
+         
+    </main>
+
+     Footer
+    <footer class="bg-gray-800 text-white text-center py-4">
+        <p>&copy; 2025 Hufflepuff House. All rights reserved.</p>
+    </footer> 
+
+</body>
+</html>
+
+<?php require 'layouts/footer.view.php';?> 
+-->

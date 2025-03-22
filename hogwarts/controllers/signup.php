@@ -33,15 +33,15 @@
 
             if ($user) {
                 $_SESSION["error"] = "Username already exists!";
-                header("Location: ../views/signup.view.php");
+                header("Location: /views/login.view.php");
                 exit;
             }
 
-            $stmt = $this->db->prepare("INSERT INTO students (name,username,email,hashedPassword,country_name) VALUES (?,?,?,?,?)");
-            $stmt->execute([$name,$username,$email,password_hash($password, PASSWORD_DEFAULT), 'Egypt']);
+            $stmt = $this->db->prepare("INSERT INTO students (name,username,email,hashedPassword,country_name,wand_id,house_id) VALUES (?,?,?,?,?,?,?)");
+            $stmt->execute([$name,$username,$email,password_hash($password, PASSWORD_DEFAULT), 'Egypt',1,1]);
 
             $_SESSION["username"] = $username;
-            header("Location: ../views/login.view.php");
+            header("Location: /views/login.view.php");
             exit;
         }
     }
