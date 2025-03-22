@@ -4,11 +4,9 @@
     
 ?>
 <!-- Left Side: Hufflepuff Image -->
-<div class="image-container">
-    <img src="../views/uploads/hufflepuff.jpg" alt="Hufflepuff Banner">
-</div>
+
 <!--body of the page-->
-    <div class="main-content">
+    <div class="main-content bg-white p-4 shadow-sm">
         <table class="custom-table">
             <thead>
                 <tr>

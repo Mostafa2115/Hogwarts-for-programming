@@ -11,9 +11,7 @@
     require 'layouts/nav.view.php';
 ?>
 <!-- Left Side: Hufflepuff Image -->
-<div class="image-container">
-    <img src="../../views/uploads/hufflepuff.jpg" alt="Hufflepuff Banner">
-</div>
+
 <!-- body -->
 <div class="container">
     <h1>Edit Course</h1>

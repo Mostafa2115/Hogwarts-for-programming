@@ -2,13 +2,7 @@
     require 'layouts/header.view.php';
     require 'layouts/nav.view.php';
 ?>
-<!-- Left Side: Hufflepuff Image -->
-<div class="image-container">
-    <img src="../views/uploads/hufflepuff.jpg" alt="Hufflepuff Banner">
-</div>
-<!-- Body of the page -->
-        <!-- Right Side: Table -->
-        <div class="table-container">
+        <div class="table-container bg-white p-4">
             <table class="custom-table">
                 <thead>
                     <tr>
@@ -30,6 +24,7 @@
                                     <input type="hidden" name="_method" value="DELETE">
                                     <button type="submit" class="btn btn-danger">Delete</button>
                                 </form>
+                        
                             </td>
                         </tr>
                     <?php endforeach; ?>
