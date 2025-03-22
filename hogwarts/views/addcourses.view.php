@@ -2,16 +2,13 @@
     require 'layouts/header.view.php';
     require 'layouts/nav.view.php';
 ?>
+<!-- Left Side: Hufflepuff Image -->
+<div class="image-container">
+    <img src="../views/uploads/hufflepuff.jpg" alt="Hufflepuff Banner">
+</div>
 <!-- body -->
 <div class="container">
     <h1>Add Course</h1>
-    <div>
-        <?php if (isset($_SESSION['error'])) : ?>
-            <div class="alert alert-danger" role="alert">
-                <?= $_SESSION['error']; ?>
-            </div>
-        <?php endif; ?>
-    </div>
     <form action="../controllers/courses" method="post">
         <div class="form-group">
             <label for="name">Course Name</label>

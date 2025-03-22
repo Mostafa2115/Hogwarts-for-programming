@@ -7,7 +7,7 @@ return [
         "$path/dashboard" => [DashboardController::class, "getDashboard"],
         "$path/diagonalley" => [DiagonAlleyController::class, "getDiagonAlley"],
         "$path/leaderboard" => [LeaderboardController::class, "getLeaderboard"],
-        "$path/courses/edit/" => [CoursesController::class, "getCourseById"],
+        "$path/courses/{id}" => [CoursesController::class, "getCourseById"],
     ],
     "post" => [
         "$path/signup" => [SignupController::class, "postSignup"],
@@ -17,10 +17,10 @@ return [
         "$path/diagonalley" => [DiagonAlleyController::class, "buyItem"],
     ],
     "put" => [
-        "$path/courses/edit" => [CoursesController::class, "editCourse"],
+        "$path/courses/edit/{id}" => [CoursesController::class, "updateCourse"],
     ],
     "delete" => [
-        "$path/courses" => [CoursesController::class, "deleteCourse"],
+        "$path/courses/delete/{id}" => [CoursesController::class, "deleteCourse"],
     ],
 ];
 

@@ -1,15 +1,15 @@
 <?php
 
-
 class LoginController {
     private $db;
     public $header = "Login";
+
     public function __construct($db) {
         $this->db = $db;
+        session_start();
     }
 
     public function postLogin() {
-
         if ($_SERVER["REQUEST_METHOD"] !== "POST") {
             http_response_code(405);
             echo "Method Not Allowed";
@@ -25,21 +25,30 @@ class LoginController {
             exit;
         }
 
-        $stmt = $this->db->prepare("SELECT * FROM students WHERE username = ?");
-        $stmt->execute([$username]);
+        $stmt = $this->db->prepare("
+            SELECT username, hashedPassword, 'student' AS role FROM students WHERE username = ?
+            UNION
+            SELECT username, hashedPassword, role FROM professors WHERE username = ?
+        ");
+        
+        $stmt->execute([$username, $username]);
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        if ($user && password_verify($password, $user["hashedPassword"])) {
-            $_SESSION["username"] = $username;
-            header("Location: ../controllers/home");
-            exit;
-        } else {
+        if (!$user || !password_verify($password, $user["hashedPassword"])) {
             $_SESSION["error"] = "Invalid username or password!";
             header("Location: ../views/login.view.php");
             exit;
         }
+
+        $_SESSION["role"] = $user["role"];
+        $_SESSION["username"] = $user["username"];
+        
+        if($user["role"] === "student") {
+            header("Location: ../controllers/home");
+        } else {
+            header("Location: ../controllers/dashboard");
+        }
+        exit;
     }
 }
-
 ?>
-

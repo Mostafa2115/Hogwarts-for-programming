@@ -4,7 +4,9 @@
         <div class="nav-links">
             <?php $path = "/php/Hogwarts-for-programming/hogwarts/controllers" ?>
             <a href="<?php echo $path ?>/home" class="<?php echo $_SERVER['REQUEST_URI'] === $path.'/home' ?  "active" : "" ?>">Home</a>
-            <a href="<?php echo $path ?>/dashboard" class="<?php echo $_SERVER['REQUEST_URI'] === $path.'/dashboard' ?  "active" : "" ?>">Dashboard</a>
+            <?php if($_SESSION['role'] !== 'student'){?>
+                 <a href="<?php echo $path ?>/dashboard" class="<?php echo $_SERVER['REQUEST_URI'] === $path.'/dashboard' ?  "active" : "" ?>">Dashboard</a>
+            <?php } ?>
             <a href="<?php echo $path ?>/courses" class="<?php echo $_SERVER['REQUEST_URI'] === $path.'/courses' ?  "active" : "" ?>">Courses</a>
             <a href="<?php echo $path ?>/diagonalley" class="<?php echo $_SERVER['REQUEST_URI'] === $path.'/diagonalley' ?  "active" : "" ?>">Diagon Alley</a>
             <a href="<?php echo $path ?>/leaderboard" class="<?php echo $_SERVER['REQUEST_URI'] === $path.'/leaderboard' ?  "active" : "" ?>">Leader Board</a>
@@ -27,10 +29,6 @@
 </div>
 <main class="main-container">
     <div class="content-wrapper">
-        <!-- Left Side: Hufflepuff Image -->
-        <div class="image-container">
-            <img src="../views/uploads/hufflepuff.jpg" alt="Hufflepuff Banner">
-        </div>
         <script>
             function toggleMenu() {
                 var menu = document.getElementById('mobileNav');

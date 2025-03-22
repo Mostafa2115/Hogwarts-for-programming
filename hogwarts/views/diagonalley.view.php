@@ -2,6 +2,10 @@
     require 'layouts/header.view.php';
     require 'layouts/nav.view.php';
 ?>
+<!-- Left Side: Hufflepuff Image -->
+<div class="image-container">
+    <img src="../views/uploads/hufflepuff.jpg" alt="Hufflepuff Banner">
+</div>
 <!--body of the page-->
 <div class="main-content">
     <table class="custom-table">
