@@ -45,10 +45,7 @@ class CoursesController
             echo "NOT FOUND";
             exit;
         }
-        if($_SESSION['role'] === 'student'){
-            echo "You are not authorized to access this page";
-            exit;
-        }
+        
 
         require 'views/courses/edit.view.php';
     }
@@ -69,10 +66,7 @@ class CoursesController
     }
     public function updateCourse($id)
     {
-        if($_SESSION['role'] === 'student'){
-            echo "You are not authorized to access this page";
-            exit;
-        }
+        
         $stmt = $this->db->prepare('UPDATE courses SET course_name = :name, Description = :description WHERE id = :id');
         $stmt->execute([
             'id' => $id,
@@ -85,10 +79,7 @@ class CoursesController
 
     public function deleteCourse($id)
     {
-        if($_SESSION['role'] === 'student'){
-            echo "You are not authorized to access this page";
-            exit;
-        }
+        
         $stmt = $this->db->prepare('DELETE FROM courses WHERE id = :id');
         $stmt->execute(['id' => $id]);
 

@@ -16,7 +16,7 @@ return [
         "$path/login" => [LoginController::class, "postLogin"],
         "$path/logout" => [LoginController::class, "postLogout"],
         "$path/courses/add" => [CoursesController::class, "addCourse"],
-        "$path/diagonalley" => [DiagonAlleyController::class, "buyItem"],
+        "$path/diagonalley" => [DiagonAlleyController::class, "buyItems"],
         "$path/challenges/add/{course_id}" => [ChallengeController::class, "addChallenge"],
     ],
     "put" => [

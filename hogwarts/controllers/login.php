@@ -36,7 +36,7 @@ class LoginController {
 
         if (!$user || !password_verify($password, $user["hashedPassword"])) {
             $_SESSION["error"] = "Invalid username or password!";
-            header("Location: /views/login.view.php");
+            header("Location: ../views/login.view.php");
             exit;
         }
 

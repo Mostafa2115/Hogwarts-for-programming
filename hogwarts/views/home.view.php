@@ -2,15 +2,31 @@
     require 'layouts/header.view.php';
     require 'layouts/nav.view.php';
 ?>
-
+ <style>
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+            100% { transform: translateY(0); }
+        }
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes slide-in {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-slide-in {
+            animation: slide-in 1s ease-out;
+        }
+    </style>
 <!-- Cedric Diggory -->
-<main class="max-w-7xl mx-auto py-12 pl-16 flex flex-col bg-cover bg-center bg-black" style="background-image: url(http://www.transparenttextures.com/patterns/brick-wall-dark.png);">       
+<main class="max-w-7xl mx-auto py-12 pl-16 flex flex-col bg-cover bg-center" style="background-image: url(http://www.transparenttextures.com/patterns/brick-wall-dark.png);">       
     <!-- Hero section -->
-        <div class="flex flex-row justify-between">
+        <div class="flex flex-row justify-between animate-slide-in">
             <!-- Student Info -->
             <div class="flex flex-col rounded-lg w-1/2">
                     <div class="space-y-6">
-                    <h2 class="text-4xl font-semibold text-[#d3a840] pt-4">Welcome back ,<?= htmlspecialchars($student->name)?></h2>
+                    <h2 class="text-4xl font-semibold text-[#d3a840] pt-4 animate-float">Welcome back ,<?= htmlspecialchars($student->name)?></h2>
                        
                        <div class="text-white pt-6 ">
                             <section class="text-lg leading-relaxed">
@@ -55,36 +71,108 @@
             </div>
 
             <div class="flex items-center">
-            <img src="https://www.harrypotter.com/assets/_next/static/images/portrait-placeholder-ravenclaw-a71648607ca5870aa9422e54424d4491.gif" alt="Student Avatar" class="h-2/3 border-4 border-[#d3a840]">
-            </div>
+            <img src="https://www.harrypotter.com/assets/_next/static/images/portrait-placeholder-ravenclaw-a71648607ca5870aa9422e54424d4491.gif" 
+     alt="Student Avatar" 
+     class="h-2/3 border-4 border-[#d3a840] filter sepia-[100%] brightness-[1.5] contrast-[1.2] saturate-[1.8]">
+</div>
         </div>
         <!-- section -->
 
-        <div class="flex pr-20 pt-12">
+        <div class="flex pr-20 pt-12 flex flex-col">
  <!-- Recent Activities -->
- <div class="flex bg-black w-full hover:opacity-50 text-white pt-6 rounded-lg flex-row">
-    <!-- Image -->
-     <div>
-     <img class ="w-fit h-fit rounded-full object-cover px-4" src="data:image/png;base64,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" alt="minerva-mcgonagall">    
-     </div>
-     <!-- Content -->
-    <div>
-        <h2 class="text-2xl font-semibold">Project 1</h2>
-        
-        <!-- Tags -->
-        <div class="flex space-x-2 mt-2">
-            <span class="bg-[#d3a840] text-white px-3 py-1 rounded-lg text-sm">Points</span>
-            <span class="bg-[#a17d25] text-white px-3 py-1 rounded-lg text-sm">deadline</span>
-        </div>
-
-        <!-- Description -->
-        <p class="text-gray-300 mt-3">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse bibendum. 
-            Nunc non posuere consectetur, justo erat semper enim, non hendrerit dui odio id enim.
-        </p>
+ <?php if ($challenges): ?>
+    <div class=" w-full text-white pt-6 rounded-lg">
+        <h1 class = "text-4xl text-[#d3a840] py-6">Challenges</h1>
+        <div class="grid grid-cols-1 gap-6"> <!-- Grid applied here -->
+            <?php foreach ($challenges as $challenge): ?>
+                <div class="bg-[#634d17] p-6 rounded-2xl shadow-lg">
+                    <div class="flex items-center space-x-4">
+                        <div class="w-16 h-16">
+                            <img class="w-full h-full rounded-full object-cover" 
+                                src="https://img.icons8.com/color/48/dobby.png" 
+                                alt="dobby">
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-semibold"><?= htmlspecialchars($challenge->name) ?></h2>
+                            <div class="flex space-x-2 mt-2">
+                                <span class="bg-[#d3a840] text-white px-3 py-1 rounded-lg text-sm">
+                                    <?= htmlspecialchars($challenge->points) ?> Points
+                                </span>
+                                <span class="bg-[#a17d25] text-white px-3 py-1 rounded-lg text-sm">
+                                    Deadline: <?= htmlspecialchars($challenge->deadline) ?>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Description -->
+                    <p class="text-gray-300 mt-3">
+                        <?= nl2br(htmlspecialchars($challenge->description)) ?>
+                    </p>
+                </div>
+            <?php endforeach; ?>
         </div>
     </div>
-</div>
+<?php endif; ?>
+
+        </div>
+    </div>
+
+    <?php if ($courses): ?>
+        <h1 class = "text-4xl text-[#d3a840] pt-6 mt-12">Courses</h1>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12 mt-6">
+        <?php foreach ($courses as $course): ?>
+            <div class="bg-black hover:opacity-50 text-white p-6 rounded-2xl shadow-lg">
+                
+                <div class="flex items-center space-x-4">
+                    <img class="w-20 h-20 rounded-full object-cover" 
+                         src="https://img.icons8.com/color/48/deathly-hallows.png"
+                         alt="deathly-hallows">    
+
+                    <div>
+                        <h2 class="text-2xl font-semibold"><?= htmlspecialchars($course->course_name) ?></h2>
+
+                        <span class="bg-[#d3a840] text-white px-3 py-1 rounded-lg text-sm">
+                            <?= htmlspecialchars($course->professor_name) ?>
+                        </span>
+                    </div>
+                </div>
+
+                <p class="text-gray-300 mt-3">
+                    <?= nl2br(htmlspecialchars($course->Description)) ?>
+                </p>
+
+            </div>
+        <?php endforeach; ?>
+    </div>
+<?php endif; ?>
+
+<!-- Items  -->
+ <div class="flex">
+<?php if ($items): ?>
+    <div>
+    <div class="max-w-7xl mx-auto py-12">
+        
+        <h1 class="text-4xl text-[#d3a840] py-6">Items</h1>
+
+        <div class="grid w-full sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-14 mt-8">
+            <?php foreach ($items as $item): ?>
+            <div class="bg-black shadow-lg rounded-2xl p-4 text-center">
+            <img src="<?= htmlspecialchars($item->image) ?>" 
+     alt="Item Image" 
+     class="mx-auto hover:animate-bounce size-16 object-cover rounded-lg"
+     onerror="this.onerror=null; this.src='https://img.icons8.com/color/48/hogwarts-legacy-hufflepuff.png';">
+
+                <h2 class="text-lg font-bold text-[#d3a840] mt-2"><?= htmlspecialchars($item->item_name) ?></h2>
+                <h2 class="text-lg font-bold text-white mt-2 ">quantity<span class ="text-[#d3a840] ml-2"><?= htmlspecialchars($item->quantity) ?></span></h2>
+            </div>
+            <?php endforeach; ?>
+            </div>
+        </div>
+    </div>
+            </div>
+<?php endif; ?>
+
 
          
     </main>
@@ -98,52 +186,3 @@
 </html>
 
 <?php require 'layouts/footer.view.php';?>
-
-<!-- 
-    codes for projects addition still need to make them added to test them
-Recent Activities
-<?php if ($challenges): ?>
-    <div class="flex bg-black w-full hover:opacity-50 text-white pt-6 rounded-lg flex-row">
-    Image
-     <div>
-     <img class ="w-fit h-fit rounded-full object-cover px-4" src="data:image/png;base64,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" alt="minerva-mcgonagall">    
-     </div>
-     Content
-    <div>
-    <?php foreach ($challenges as $challenge): ?>
-        <div class="challenge-card">
-            <h2 class="text-2xl font-semibold"><?= htmlspecialchars($challenge->name) ?></h2>
-
-            Tags
-            <div class="flex space-x-2 mt-2">
-                <span class="bg-[#d3a840] text-white px-3 py-1 rounded-lg text-sm">
-                    <?= htmlspecialchars($challenge->points) ?> Points
-                </span>
-                <span class="bg-[#a17d25] text-white px-3 py-1 rounded-lg text-sm">
-                    Deadline: <?= htmlspecialchars($challenge->deadline) ?>
-                </span>
-            </div>
-
-            Description
-            <p class="text-gray-300 mt-3">
-                <?= nl2br(htmlspecialchars($challenge->description)) ?>
-            </p>
-        </div>
-    <?php endforeach; ?>
-<?php endif; ?>
-    </div>
-</div>
-
-         
-    </main>
-
-     Footer
-    <footer class="bg-gray-800 text-white text-center py-4">
-        <p>&copy; 2025 Hufflepuff House. All rights reserved.</p>
-    </footer> 
-
-</body>
-</html>
-
-<?php require 'layouts/footer.view.php';?> 
--->
