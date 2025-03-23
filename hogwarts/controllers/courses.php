@@ -17,11 +17,26 @@ class CoursesController
     public function getCourses()
     {
         $courses = $this->db->query('SELECT * FROM courses')->fetchAll(PDO::FETCH_OBJ);
-        require 'views/courses.view.php';
+        require 'views/courses/showAllcourses.view.php';
     }
 
-    public function getCourseById($id)
+    public function showCourse($id)
     {
+        $stmt = $this->db->prepare('SELECT * FROM courses WHERE id = :id');
+        $stmt->execute(['id' => $id]);
+        $course = $stmt->fetch(PDO::FETCH_OBJ);
+
+        if (!$course) {
+            echo "NOT FOUND";
+            exit;
+        }
+
+        require 'views/courses/show.view.php';
+    }
+
+    public function editCourse($id)
+    {
+        
         $stmt = $this->db->prepare('SELECT * FROM courses WHERE id = :id');
         $stmt->execute(['id' => $id]);
         $course = $stmt->fetch(PDO::FETCH_OBJ);
@@ -30,22 +45,34 @@ class CoursesController
             echo "NOT FOUND";
             exit;
         }
+        if($_SESSION['role'] === 'student'){
+            echo "You are not authorized to access this page";
+            exit;
+        }
 
-        require 'views/editcourses.view.php';
+        require 'views/courses/edit.view.php';
     }
 
     public function addCourse()
     {
+        if($_SESSION['role'] === 'student'){
+            echo "You are not authorized to access this page";
+            exit;
+        }
         $stmt = $this->db->prepare('INSERT INTO courses (course_name, Description) VALUES (:name, :description)');
         $stmt->execute([
             'name' => $_POST["name"],
             'description' => $_POST["Description"]
         ]);
-        header('Location: ../controllers/courses');
+        header('Location: ../../controllers/courses');
         exit;
     }
     public function updateCourse($id)
     {
+        if($_SESSION['role'] === 'student'){
+            echo "You are not authorized to access this page";
+            exit;
+        }
         $stmt = $this->db->prepare('UPDATE courses SET course_name = :name, Description = :description WHERE id = :id');
         $stmt->execute([
             'id' => $id,
@@ -58,6 +85,10 @@ class CoursesController
 
     public function deleteCourse($id)
     {
+        if($_SESSION['role'] === 'student'){
+            echo "You are not authorized to access this page";
+            exit;
+        }
         $stmt = $this->db->prepare('DELETE FROM courses WHERE id = :id');
         $stmt->execute(['id' => $id]);
 
