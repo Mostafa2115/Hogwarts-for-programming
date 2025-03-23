@@ -18,7 +18,7 @@
              (($house->house_name === 'Hufflepuff') ? 'bg-yellow-700' : 
              (($house->house_name === 'Ravenclaw') ? 'bg-[#223679]' : 'bg-gray-700')));
         ?>">
-            <img src="<?= htmlspecialchars($house->image) ?>"  alt="<?= htmlspecialchars($house->house_name) ?>" class="w-12 h-12">
+            <img src="<?= htmlspecialchars($house->house_logo) ?>"  alt="<?= htmlspecialchars($house->house_name) ?>" class="w-12 h-12">
             <span class="text-xl font-bold"><?= htmlspecialchars($house->house_name) ?></span>
             <span class="text-2xl font-extrabold text-yellow-300"><?= htmlspecialchars($house->score) ?></span>
         </div>

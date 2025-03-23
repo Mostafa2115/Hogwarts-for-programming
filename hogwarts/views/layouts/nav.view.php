@@ -9,8 +9,8 @@
         .nav-link:hover {
             cursor: url("https://img.icons8.com/color/48/snitch.png"),auto;
         }
-        .voldemort:hover {
-        cursor: url('https://img.icons8.com/color/48/lord-voldemort.png'), auto;
+        .dumbledore:hover {
+        cursor: url('https://img.icons8.com/color/48/albus-dumbledore.png'), auto;
   }
     </style>
 </head>
@@ -26,7 +26,7 @@
                         <div class="ml-10 flex items-baseline space-x-4 nav-link:hover " >
                             <?php $path = "/php/Hogwarts-for-programming/hogwarts/controllers"; ?>
                             <a href="<?php echo $path ?>/home" class="nav-link rounded-md nav-link:hover <?php echo $_SERVER['REQUEST_URI'] === $path.'/' ?  "bg-[#F9A826] text-white" : "text-[#d3a840]" ?> px-3 py-2 text-sm font-medium" aria-current="page">Home</a>
-                            <a href="<?php echo $path ?>/dashboard"class="voldemort rounded-md <?php echo $_SERVER['REQUEST_URI'] === $path.'/dashboard' ?  "bg-[#F9A826] text-white" : "text-[#d3a840] hover:bg-[#2E2A47] hover:text-white" ?> px-3 py-2 text-sm font-medium">Dashboard</a>
+                            <a href="<?php echo $path ?>/dashboard"class="dumbledore rounded-md <?php echo $_SERVER['REQUEST_URI'] === $path.'/dashboard' ?  "bg-[#F9A826] text-white" : "text-[#d3a840] hover:bg-[#2E2A47] hover:text-white" ?> px-3 py-2 text-sm font-medium">Dashboard</a>
                             <a href="<?php echo $path ?>/courses" class="rounded-md nav-link <?php echo $_SERVER['REQUEST_URI'] === $path.'/courses' ?  "bg-[#F9A826] text-white" : "text-[#d3a840] hover:bg-[#634d17] hover:bg-opacity-50 hover:text-white" ?> px-3 py-2 text-sm font-medium">Courses</a>
                             <a href="<?php echo $path ?>/diagonalley" class="rounded-md  nav-link <?php echo $_SERVER['REQUEST_URI'] === $path.'/diagonalley' ?  "bg-[#F9A826] text-white" : "text-[#d3a840] hover:bg-[#634d17] hover:text-white hover:bg-opacity-50" ?> px-3 py-2 text-sm font-medium">Diagon Alley</a>
                             <a href="<?php echo $path ?>/leaderboard" class="rounded-md nav-link <?php echo $_SERVER['REQUEST_URI'] === $path.'/leaderboard' ?  "bg-[#F9A826] text-white" : "text-[#d3a840] hover:bg-[#634d17] hover:text-white hover:bg-opacity-50" ?> px-3 py-2 text-sm font-medium">Leader Board</a>
