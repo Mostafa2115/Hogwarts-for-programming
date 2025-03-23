@@ -2,11 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title><?php echo $GLOBALS['header'] ?></title>
+    <title>Course</title>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body style="
@@ -15,4 +13,28 @@
   background-color: black;
 ">
 </body>
+<?php
+    require 'views/layouts/nav.view.php';
+?>
+<div class="container bg-white p-5 mt-5">
+    <table class="custom-table">
+        <thead>
+            <tr>
+                <th>Course ID</th>
+                <th>Course Name</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><?= htmlspecialchars($course->id); ?></td>
+                <td><?= htmlspecialchars($course->course_name); ?></td>
+                <td><?= htmlspecialchars($course->Description); ?></td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="../../../views/challenges/add.view.php?id=<?= $course->id; ?>" class="btn btn-primary">Add Challenge</a>
+</div>
+</main>
+<?php require 'views/layouts/footer.view.php'; ?>
 

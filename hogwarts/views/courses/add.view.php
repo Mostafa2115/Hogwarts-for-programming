@@ -2,11 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title><?php echo $GLOBALS['header'] ?></title>
+    <title>Add Course</title>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body style="
@@ -15,4 +13,25 @@
   background-color: black;
 ">
 </body>
+<?php
+    session_start();
+    require '../../views/layouts/nav.view.php';
+    
+?>
+<!-- Left Side: Hufflepuff Image -->
 
+<!-- body -->
+<div class="container bg-white p-4">
+    <h1>Add Course</h1>
+    <form action="../../controllers/courses/add" method="post">
+        <div class="form-group">
+            <label for="name">Course Name</label>
+            <input type="text" class="form-control" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="Description">Description</label>
+            <input type="text" class="form-control" id="Description" name="Description" required>
+        </div>
+        <input type="submit" class="btn btn-primary" value="Add Course">
+    </form>
+<?php require '../layouts/footer.view.php'; ?>
