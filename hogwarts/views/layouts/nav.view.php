@@ -1,3 +1,21 @@
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'EB Garamond', sans-serif;
+            background-color: black;
+        }
+        .nav-link:hover {
+            cursor: url("https://img.icons8.com/color/48/snitch.png"),auto;
+        }
+        .voldemort:hover {
+        cursor: url('https://img.icons8.com/color/48/lord-voldemort.png'), auto;
+  }
+    </style>
+</head>
+<body class="min-h-full">
+    <nav class="bg-transparent">
 <body style="
 .nav-link:hover {
     cursor: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAADOklEQVR4nO2YTUgUYRjHR4s6R0V06BDtjGIJzaw6o2ghZHioiEQpaaFyoW556IMwKqFjsKsV2iEJSsM6FZo2s7JlGjio9CF9uL5jnbxkosXuzjvqE+8ottqamzPOTLV/+MPuzMvw+807D/tBUckkk4xpCQZh9VOk7RcRvi8p2htJweOigrGoaB8lhJtFZbLswQCsoZyYwLBWKCE8LCka/K4i0pCEtH2UkxJQ8DkJ4aml4H9K4GkR4SrKCZHQZDkBShR+vojqtRW+PQRbJIS/LwdeF1Dwt7ZPsNk2AUnBd5cLP1ekVdsmICI8ZlRARFqfbQKG776iD/TYXy0gITyVFPjvdsDfE6339aitpsyAgjG5lk+O1lknIEdH/bI6D+Rg9QvwXu+HKw+HFoW91DwEFbV9UHK1O0ZAA3Itnxz9Yp1Aj/pkocAxXy9sPNAIx/29iwp4rsn6Gm9tf+znAJBr+WW1xToBWT28UMBI/bIKNT1qmWUClwFSfbLaZs4Qa0BmAABSKKsjIhw2YYgnKLsiKVrIhB14b5uAiPCdeFBNAxguBCNz78lrciz+Dmi3bRMIIK3IhEdot20CZPBEhIPLh9c6bRne2EgoyizrazXCo+2hiItyQgIIF/yRBMJfO0I4j3JSyE4sNqixbXyLoWMwso1yYrytYbj4LAItoV9FyLGqYATIGsqp8baGdcBKMQwNr1VoDWG9Da9UOC3NnHO0QO6RSjh6b2gOdGE9TZ8hz3PeWQLpHO+mWf4GzQnDDCdAes4uKDpTBxWPJ+bAyWtyjJwja2hOUBiOr3Vl5bK2gdNunqdZvosAxWv2oVNw4tG43pySk3HXMKSs0JnGZmdZBu5yFa9lOOEWwwnTi0LNdu/Zev3OL7WO4YQpmhVuZmRkrOwfv4zbvYHh+OcJAOndUVAM2/OLE1rL6I8W372V5zetCHx6dvZ6muU/JApjoO8yM/PXmc2fQrN8uwXwMDsX5v68ZNgcj2Xw3ExdbqHcHPrS0lUMKyCrBWhOGKQoKtUwP71T2GM1PDPbNHdOoWEBhhVq7BKgWcFvXIDjX9onwHcZFqBZYcTGHRgxYweidgkwHB81LJBMMv94fgCGp0AaDrQ5QwAAAABJRU5ErkJggg=='), auto;
@@ -19,14 +37,12 @@
                     </div>
                     <div class="hidden md:block">
                         <div class="ml-10 flex items-baseline space-x-4 nav-link:hover " >
-                           <?php $path = "/php/Hogwarts-for-programming/hogwarts/controllers" ?>
-                            <a href="<?php echo $path ?>/home" class="rounded-md <?php echo $_SERVER['REQUEST_URI'] === $path.'/' ?  "bg-[#F9A826] text-white" : "text-[#d3a840] hover:bg-[#2E2A47] hover:text-white" ?> px-3 py-2 text-sm font-medium" aria-current="page">Home</a>
-                            <?php if($_SESSION['role'] !== 'student'){?>
-                            <a href="<?php echo $path ?>/dashboard" class="rounded-md <?php echo $_SERVER['REQUEST_URI'] === $path.'/dashboard' ?  "bg-[#F9A826] text-white" : "text-[#d3a840] hover:bg-[#2E2A47] hover:text-white" ?> px-3 py-2 text-sm font-medium">Dashboard</a>
-                            <?php } ?>
-                            <a href="<?php echo $path ?>/courses" class="rounded-md <?php echo $_SERVER['REQUEST_URI'] === $path.'/courses' ?  "bg-[#F9A826] text-white" : "text-[#d3a840] hover:bg-[#2E2A47] hover:text-white" ?> px-3 py-2 text-sm font-medium">Courses</a>
-                            <a href="<?php echo $path ?>/diagonalley" class="rounded-md <?php echo $_SERVER['REQUEST_URI'] === $path.'/diagonalley' ?  "bg-[#F9A826] text-white" : "text-[#d3a840] hover:bg-[#2E2A47] hover:text-white" ?> px-3 py-2 text-sm font-medium">Diagon Alley</a>
-                            <a href="<?php echo $path ?>/leaderboard" class="rounded-md <?php echo $_SERVER['REQUEST_URI'] === $path.'/leaderboard' ?  "bg-[#F9A826] text-white" : "text-[#d3a840] hover:bg-[#2E2A47] hover:text-white" ?> px-3 py-2 text-sm font-medium">Leader Board</a>
+                        <?php $path = "/php/Hogwarts-for-programming/hogwarts/controllers"; ?>
+                            <a href="<?php echo $path ?>/home" class="nav-link rounded-md nav-link:hover <?php echo $_SERVER['REQUEST_URI'] === $path.'/' ?  "bg-[#F9A826] text-white" : "text-[#d3a840]" ?> px-3 py-2 text-sm font-medium" aria-current="page">Home</a>
+                            <a href="<?php echo $path ?>/dashboard"class="voldemort rounded-md <?php echo $_SERVER['REQUEST_URI'] === $path.'/dashboard' ?  "bg-[#F9A826] text-white" : "text-[#d3a840] hover:bg-[#2E2A47] hover:text-white" ?> px-3 py-2 text-sm font-medium">Dashboard</a>
+                            <a href="<?php echo $path ?>/courses" class="rounded-md nav-link <?php echo $_SERVER['REQUEST_URI'] === $path.'/courses' ?  "bg-[#F9A826] text-white" : "text-[#d3a840] hover:bg-[#634d17] hover:bg-opacity-50 hover:text-white" ?> px-3 py-2 text-sm font-medium">Courses</a>
+                            <a href="<?php echo $path ?>/diagonalley" class="rounded-md  nav-link <?php echo $_SERVER['REQUEST_URI'] === $path.'/diagonalley' ?  "bg-[#F9A826] text-white" : "text-[#d3a840] hover:bg-[#634d17] hover:text-white hover:bg-opacity-50" ?> px-3 py-2 text-sm font-medium">Diagon Alley</a>
+                            <a href="<?php echo $path ?>/leaderboard" class="rounded-md nav-link <?php echo $_SERVER['REQUEST_URI'] === $path.'/leaderboard' ?  "bg-[#F9A826] text-white" : "text-[#d3a840] hover:bg-[#634d17] hover:text-white hover:bg-opacity-50" ?> px-3 py-2 text-sm font-medium">Leader Board</a>
                         </div>
                     </div>
                 </div>
@@ -43,10 +59,8 @@
         <div class="md:hidden" id="mobile-menu">
             <div class="space-y-1 px-2 pt-2 pb-3 sm:px-3">
                 <a href="<?php echo $path ?>/home" class="block rounded-md bg-[#F9A826] text-white px-3 py-2 text-base font-medium" aria-current="page">Home</a>
-                <?php if($_SESSION['role'] !== 'student'){?>
                 <a href="<?php echo $path ?>/dashboard" class="block rounded-md text-[#F9A826] hover:bg-[#2E2A47] hover:text-white px-3 py-2 text-base font-medium">Dashboard</a>
-                <?php } ?>
-                <a href="<?php echo $path ?>/courses" class="block rounded-md text-[#F9A826] hover:bg-[#2E2A47] hover:text-white px-3 py-2 text-base font-medium">Courses</a>
+                <a href="<?php echo $path ?>/courses" class="block rounded-md text-[#F9A826] hover:bg-[ #2E2A47] hover:text-white px-3 py-2 text-base font-medium">Courses</a>
                 <a href="<?php echo $path ?>/diagonalley" class="block rounded-md text-[#F9A826] hover:bg-[#2E2A47] hover:text-white px-3 py-2 text-base font-medium">Diagon Alley</a>
                 <a href="<?php echo $path ?>/leaderboard" class="block rounded-md text-[#F9A826] hover:bg-[#2E2A47] hover:text-white px-3 py-2 text-base font-medium">Leader Board</a>
             </div>
@@ -54,4 +68,4 @@
     </nav>
     <?php require 'banner.view.php'; ?>
 </div>
-
+</body>

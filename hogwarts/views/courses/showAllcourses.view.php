@@ -2,32 +2,34 @@
     require 'views/layouts/header.view.php';
     require 'views/layouts/nav.view.php';
 ?>
-        <div class="table-container bg-white p-4">
-            <table class="custom-table">
-                <thead>
-                    <tr>
-                        <th>Course ID</th>
-                        <th>Course Name</th>
-                        <th>Description</th>
-
-                            <th>Actions</th>
-
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($courses as $course) : ?>
-                        <tr>
-                            <td><?= htmlspecialchars($course->id); ?></td>
-                            <td><?= htmlspecialchars($course->course_name); ?></td>
-                            <td><?= htmlspecialchars($course->Description); ?></td>
-                            <td>
-                                <a href="../controllers/courses/edit/<?= $course->id; ?>" class="btn btn-primary">Edit</a>
-                                <a href="../controllers/courses/show/<?= $course->id; ?>" class="btn btn-info">Show</a>
-                                <form action="../controllers/courses/delete/<?= $course->id; ?>" method="post">
-                                    <input type="hidden" name="_method" value="DELETE">
-                                    <button type="submit" class="btn btn-danger">Delete</button>
-                                </form>
-                            </td>
+<main class="bg-cover h-screen bg-center" style="background-image: url(http://www.transparenttextures.com/patterns/brick-wall-dark.png);">
+        <div class="p-6 ">
+    <div class="overflow-x-auto">
+        <table class="min-w-full border rounded-2xl">
+            <thead>
+                <tr class="bg-[#634d17] text-white text-left">
+                    <th class="px-4 py-2">Course ID</th>
+                    <th class="px-4 py-2">Course Name</th>
+                    <th class="px-4 py-2">Description</th>
+                    <th class="px-4 py-2">Actions</th>
+                </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-300" style="
+            background-color: #f0c569;
+            background-image: url('https://www.transparenttextures.com/patterns/retina-wood.png')";>>
+                <?php foreach ($courses as $course) : ?>
+                    <tr class="hover:bg-[#634d17] transition">
+                        <td class="px-4 py-2"><?= htmlspecialchars($course->id); ?></td>
+                        <td class="px-4 py-2"><?= htmlspecialchars($course->course_name); ?></td>
+                        <td class="px-4 py-2"><?= htmlspecialchars($course->Description); ?></td>
+                        <td class="px-4 py-2 space-x-2 flex">
+                            <a href="../controllers/courses/edit/<?= $course->id; ?>" class="px-3 py-1 bg-[#a17d25] text-white rounded-md hover:opacity-50 transition">Edit</a>
+                            <a href="../controllers/courses/show/<?= $course->id; ?>" class="px-3 py-1 bg-[#2a7da1] text-white rounded-md hover:opacity-50 transition">Show</a>
+                            <form action="../controllers/courses/delete/<?= $course->id; ?>" method="post">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <button type="submit" class="px-3 py-1 bg-[#d3a840] text-white rounded-md hover:opacity-25  transition">Delete</button>
+                            </form>
+                        </td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>

@@ -6,32 +6,40 @@
 <!-- Left Side: Hufflepuff Image -->
 
 <!--body of the page-->
-    <div class="main-content bg-white p-4 shadow-sm">
-        <table class="custom-table">
+    
+<main class="bg-cover bg-center" style="background-image: url(http://www.transparenttextures.com/patterns/brick-wall-dark.png);">
+<div class="main-content p-6">
+    <div class="overflow-x-auto">
+        <table class="min-w-full shadow-lg rounded-2xl">
             <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Country Name</th>
-                    <th>Wand Wood</th>
-                    <th>Wand Core</th>
-                    <th>House Name</th>
+                <tr class="text-white text-left bg-[#634d17] ">
+                    <th class="px-4 py-2">ID</th>
+                    <th class="px-4 py-2">Name</th>
+                    <th class="px-4 py-2">Country Name</th>
+                    <th class="px-4 py-2">Wand Wood</th>
+                    <th class="px-4 py-2">Wand Core</th>
+                    <th class="px-4 py-2">House Name</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="divide-y divide-gray-300;
+" style="
+background-color: #f0c569;
+background-image: url('https://www.transparenttextures.com/patterns/retina-wood.png')";>
                 <?php foreach ($students as $student) : ?>
-                    <tr>
-                        <td><?= htmlspecialchars($student->id); ?></td>
-                        <td><?= htmlspecialchars($student->name); ?></td>
-                        <td><?= htmlspecialchars($student->country_name); ?></td>
-                        <td><?= htmlspecialchars($student->wood); ?></td>
-                        <td><?= htmlspecialchars($student->core); ?></td>
-                        <td><?= htmlspecialchars($student->house_name); ?></td>
+                    <tr class="hover:bg-[#634d17] transition">
+                        <td class="px-4 py-2"><?= htmlspecialchars($student->id); ?></td>
+                        <td class="px-4 py-2"><?= htmlspecialchars($student->name); ?></td>
+                        <td class="px-4 py-2"><?= htmlspecialchars($student->country_name); ?></td>
+                        <td class="px-4 py-2"><?= htmlspecialchars($student->wood); ?></td>
+                        <td class="px-4 py-2"><?= htmlspecialchars($student->core); ?></td>
+                        <td class="px-4 py-2 <?= $student->house_name ?>">
+                            <?= htmlspecialchars($student->house_name); ?>
+                        </td>
                     </tr>
                 <?php endforeach; ?>
-            </div>
             </tbody>
         </table>
     </div>
-</main>
+</div>
+
 <?php require 'layouts/footer.view.php';?>
