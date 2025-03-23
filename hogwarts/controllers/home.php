@@ -19,11 +19,6 @@
             $stmt->execute(['username' => $_SESSION["username"]]);      
             $student = $stmt->fetch(PDO::FETCH_OBJ);
         
-            if (!$student) {
-                echo "Student not found!";
-                exit;
-            }
-        
             // house
             $stmt = $this->db->prepare(
                 "SELECT * FROM Houses WHERE id = :house_id"
@@ -52,6 +47,30 @@
             );
             $stmt->execute(['student_id' => $student->id]); 
             $challenges = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+            // cources
+            $stmt = $this->db->prepare(
+               "SELECT c.*, p.name AS professor_name 
+                FROM Courses c  
+                JOIN Student_Courses s ON s.course_id = c.id  
+                JOIN Professors p ON c.professor_id = p.id  
+                WHERE s.student_id = :student_id;"
+                
+            );
+            $stmt->execute(['student_id' => $student->id]); 
+            $courses = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+            //Items
+
+            $stmt = $this->db->prepare('
+            SELECT i.*, d.*
+            FROM Student_Items i
+            JOIN Diagon_Alley d ON i.item_id = d.item_id
+            WHERE i.student_id = :student_id
+        ');
+            $stmt->execute([':student_id' => $student->id]);
+            $items = $stmt->fetchAll(PDO::FETCH_OBJ);
+            
             
             return require 'views/home.view.php';
         }

@@ -26,6 +26,7 @@ CREATE TABLE `Houses` (
   `house_name` varchar(100) NOT NULL DEFAULT 'Unknown',
   `total_points` int DEFAULT 0,
   `house_description` varchar(1000) NOT NULL DEFAULT 'Unknown'
+  `house_logo` VARCHAR(255) NOT NULL,
 );
 
 CREATE TABLE `Courses` (
@@ -37,6 +38,7 @@ CREATE TABLE `Courses` (
 
 CREATE TABLE `Professors` (
   `id` int PRIMARY KEY AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
   `username` varchar(100) NOT NULL UNIQUE,
   `email` varchar(100) NOT NULL UNIQUE,
   `hashedPassword` varchar(255) NOT NULL UNIQUE,
@@ -51,7 +53,6 @@ CREATE TABLE `Student_Courses` (
 
 CREATE TABLE `House_Points_Log` (
   `id` int PRIMARY KEY AUTO_INCREMENT,
-  `student_id` int,
   `house_id` int,
   `points_change` int DEFAULT 0,
   `reason` varchar(255) DEFAULT 'No reason provided',
@@ -82,13 +83,14 @@ CREATE TABLE `Student_Items` (
   `item_id` int,
   `quantity` int DEFAULT 1,
   `total_price` decimal(5,2) DEFAULT 0.00,
-  PRIMARY KEY(`student_id`, `item_id`)
+   PRIMARY KEY(`student_id`, `item_id`)
 );
 
 CREATE TABLE `Diagon_Alley` (
   `item_id` int PRIMARY KEY AUTO_INCREMENT,
   `item_name` varchar(100) NOT NULL,
-  `item_price` decimal(5,2) NOT NULL DEFAULT 0.00
+  `item_price` decimal(5,2) NOT NULL DEFAULT 0.00,
+  `image` VARCHAR(255) NOT NULL,
 );
 
 -- Add Foreign Keys
@@ -123,11 +125,12 @@ INSERT INTO Wands (wood, core) VALUES
 ('Walnut', 'Dragon Heartstring'),
 ('Cedar', 'Unicorn Hair');
 
-INSERT INTO Houses (house_name, total_points, house_description) VALUES
-('Gryffindor', 0, 'Bravery and chivalry.'),
-('Slytherin', 0, 'Ambition and resourcefulness.'),
-('Hufflepuff', 0, 'Loyalty and hard work.'),
-('Ravenclaw', 0, 'Wisdom and creativity.');
+INSERT INTO `Houses` (`house_name`, `total_points`, `house_description`, `house_logo`) VALUES
+('Gryffindor', 0, 'probably know that some of Gryffindor’s most renowned members include Harry Potter and Albus Dumbledore. But did you know that the Gryffindor common room is located in one of the highest towers at Hogwarts, offering breathtaking views of the grounds? Or that their house ghost, Nearly Headless Nick, is famous for his unfortunate beheading mishap?', 'https://img.icons8.com/color/48/gryffindor.png'),
+('Hufflepuff', 0, 'probably know that some of Hufflepuff’s most renowned members include Cedric Diggory and Newt Scamander. But did you know that the Hufflepuff common room is the coziest in Hogwarts, located near the kitchens and filled with warm, earthy tones? Or that Hufflepuff’s house ghost, the Fat Friar, is the friendliest of them all, always ready to offer a kind word?', 'https://img.icons8.com/color/48/hufflepuff.png'),
+('Ravenclaw', 0, 'probably know that some of Ravenclaw’s most renowned members include Gilderoy Lockhart and Luna Lovegood. But did you know that Ravenclaw’s Grey Lady is the least talkative Hogwarts house ghost, or that Ravenclaw’s common room boasts the most stunning views of the castle grounds?', 'https://img.icons8.com/plasticine/100/ravenclaw.png'),
+('Slytherin', 0, 'probably know that some of Slytherin’s most renowned members include Severus Snape and Draco Malfoy. But did you know that the Slytherin common room is located beneath the Black Lake, casting an eerie green light on its stone walls? Or that their house ghost, the Bloody Baron, is the most terrifying of all the Hogwarts ghosts?', 'https://img.icons8.com/color/48/slytherin.png');
+
 
 INSERT INTO Professors (username, email, hashedPassword, role) VALUES
 ('dumbledore', 'dumbledore@hogwarts.edu', 'hashed_pass1', 'admin'),
@@ -153,13 +156,30 @@ INSERT INTO Challenges (name, course_id, points, challenge_type, start_date, dea
 INSERT INTO Student_Challenge_Attempts (student_id, challenge_id, score) VALUES
 (1, 1, 10), (2, 1, 15);
 
-INSERT INTO House_Points_Log (student_id, house_id, points_change, reason) VALUES
-(1, 1, 50, 'Winning the House Cup');
+INSERT INTO House_Points_Log (house_id, points_change, reason) VALUES
+(1, 50, 'Winning the House Cup');
 
-INSERT INTO Diagon_Alley (item_name, item_price) VALUES
-('Wand Holster', 12.50),
-('Spellbook', 15.00);
 
 INSERT INTO Student_Items (student_id, item_id, quantity, total_price) VALUES
 (1, 1, 1, 12.50),  
 (2, 2, 2, 30.00);
+
+INSERT INTO diagon_alley (item_name, item_price, image) VALUES
+('Elder Wand', 39.99, 'https://img.icons8.com/emoji/48/magic-wand.png'),
+('Nimbus 2000', 299.99, 'https://img.icons8.com/color/96/broom.png'),
+('Hogwarts Express Ticket', 10.00, 'https://img.icons8.com/color/96/ticket.png'),
+('Polyjuice Potion', 49.99, 'https://img.icons8.com/color/96/bottle.png'),
+('Golden Snitch', 19.99, 'https://img.icons8.com/color/96/snitch.png'),
+('Sorting Hat', 79.99, 'https://img.icons8.com/external-wanicon-flat-wanicon/64/external-witch-hat-halloween-wanicon-flat-wanicon.png'),
+('Marauder’s Map', 24.99, 'https://img.icons8.com/color/96/map.png'),
+('Hedwig (Owl)', 149.99, 'https://img.icons8.com/color/96/owl.png');
+
+INSERT INTO `House_Points_Log` ( `house_id`, `points_change`, `reason`) VALUES
+( 1, 10, 'Won the Quidditch match'),
+( 2, -5, 'Late submission of homework'),
+( 3, 15, 'Outstanding performance in Charms class'),
+( 4, -10, 'Caught dueling in the corridors'),
+(1, 20, 'Helped a fellow student in need'),
+(2, 5, 'Perfect attendance in Herbology'),
+(3, -3, 'Talking in class'),
+(4, 10, 'Exceptional potion-making skills');
