@@ -1,6 +1,5 @@
 <?php
     $GLOBALS['header'] = "Login";
-    session_start();
     require 'layouts/global.view.php';
 ?>
 
@@ -37,7 +36,7 @@
             </form>
             <div class="flex gap-4">
         <p>You don't have an account? </p>
-        <a class="snitch" href="../views/signup.view.php">Sign up</a>
+        <a class="snitch" href="../controllers/signup">Sign up</a>
     </div>
         </div>
     </div>

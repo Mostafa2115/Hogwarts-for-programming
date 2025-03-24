@@ -11,6 +11,10 @@
             }
             $this->db = $db;
         }
+        public function addForm($course_id)
+        {
+            require 'views/challenges/add.view.php';
+        }
 
         public function addChallenge($id)
         {

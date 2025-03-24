@@ -5,7 +5,7 @@
 
 <div class="text-white flex flex-col items-center justify-center text-center" >
     <div class="mt-4 fade-in fade-in-delay-1">
-        <?php session_start(); 
+        <?php
         if (!empty($_SESSION['error'])) {
             echo "<p class='text-red-500'>{$_SESSION['error']}</p>"; 
             unset($_SESSION['error']);
@@ -43,7 +43,7 @@
         </form>
             <div class="flex gap-4 snitch">
                 <p>Already have an account? </p>
-                <a class="" href="../views/login.view.php">Login</a>
+                <a class="" href="../controllers/login">Login</a>
             </div>
     </div>
     </div>

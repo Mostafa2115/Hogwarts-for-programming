@@ -1,8 +1,7 @@
 <?php
-    $header = 'Add Course';
-    session_start();
-    require '../../views/layouts/header.view.php';
-    require '../../views/layouts/nav.view.php';
+    $GLOBALS['header'] = 'Add Course';
+    require 'views/layouts/header.view.php';
+    require 'views/layouts/nav.view.php';
 ?>
 
 <!-- Body -->
@@ -44,4 +43,4 @@
     </div>
 </div>
 
-<?php require '../layouts/footer.view.php'; ?>
+<?php require 'views/layouts/footer.view.php'; ?>

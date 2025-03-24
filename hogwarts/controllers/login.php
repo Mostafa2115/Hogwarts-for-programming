@@ -6,7 +6,10 @@ class LoginController {
 
     public function __construct($db) {
         $this->db = $db;
-        session_start();
+    }
+    public function getLogin() {
+        
+        return require "views/login.view.php";
     }
 
     public function postLogin() {
@@ -21,7 +24,7 @@ class LoginController {
 
         if (empty($username) || empty($password)) {
             $_SESSION["error"] = "All fields are required!";
-            header("Location: ../views/login.view.php");
+            header("Location: ../controllers/login");
             exit;
         }
 
@@ -36,7 +39,7 @@ class LoginController {
 
         if (!$user || !password_verify($password, $user["hashedPassword"])) {
             $_SESSION["error"] = "Invalid username or password!";
-            header("Location: ../views/login.view.php");
+            header("Location: ../controllers/login");
             exit;
         }
 
