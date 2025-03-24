@@ -10,6 +10,7 @@ return [
         "$path/courses/edit/{id}" => [CoursesController::class, "editCourse"],
         "$path/courses/" => [CoursesController::class, "showAllCourses"],
         "$path/courses/show/{id}" => [CoursesController::class, "showCourse"],
+        "$path/professor/home" => [ProfessorsController::class, "getProfessorProfile"],
     ],
     "post" => [
         "$path/signup" => [SignupController::class, "postSignup"],
@@ -17,6 +18,7 @@ return [
         "$path/logout" => [LoginController::class, "postLogout"],
         "$path/courses/add" => [CoursesController::class, "addCourse"],
         "$path/diagonalley" => [DiagonAlleyController::class, "buyItems"],
+        "$path/professor" => [ProfessorsController::class, "addProfessor"],
         "$path/challenges/add/{course_id}" => [ChallengeController::class, "addChallenge"],
     ],
     "put" => [

@@ -38,7 +38,10 @@
             }
 
             $stmt = $this->db->prepare("INSERT INTO students (name,username,email,hashedPassword,country_name,wand_id,house_id) VALUES (?,?,?,?,?,?,?)");
-            $stmt->execute([$name,$username,$email,password_hash($password, PASSWORD_DEFAULT), 'Egypt',1,1]);
+            srand((double)microtime()*1000000);
+            $wand_id = rand(1,4);
+            $house_id = rand(1,4);
+            $stmt->execute([$name,$username,$email,password_hash($password, PASSWORD_DEFAULT), 'Egypt',$wand_id,$house_id]);
 
             $_SESSION["username"] = $username;
             header("Location: ../views/login.view.php");

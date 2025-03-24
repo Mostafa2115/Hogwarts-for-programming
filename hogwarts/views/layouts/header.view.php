@@ -5,14 +5,31 @@
     <title><?php echo $GLOBALS['header'] ?></title>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+    font-face {
+    font-family: 'HarryP';
+    src: url('/public/fonts.php') format('truetype');    font-weight: normal;
+    font-style: normal;
+        }
+        body {
+            cursor: url('https://img.icons8.com/color/48/snitch.png') 2 2, auto;
+            background-color: black;
+        }
+        .harry-font {
+            font-family: 'HarryP', sans-serif;
+            letter-spacing: 1.5px; 
+            line-height: 1.5;
+        }
+        .nav-link:hover {
+        cursor: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAADOklEQVR4nO2YTUgUYRjHR4s6R0V06BDtjGIJzaw6o2ghZHioiEQpaaFyoW556IMwKqFjsKsV2iEJSsM6FZo2s7JlGjio9CF9uL5jnbxkosXuzjvqE+8ottqamzPOTLV/+MPuzMvw+807D/tBUckkk4xpCQZh9VOk7RcRvi8p2htJweOigrGoaB8lhJtFZbLswQCsoZyYwLBWKCE8LCka/K4i0pCEtH2UkxJQ8DkJ4aml4H9K4GkR4SrKCZHQZDkBShR+vojqtRW+PQRbJIS/LwdeF1Dwt7ZPsNk2AUnBd5cLP1ekVdsmICI8ZlRARFqfbQKG776iD/TYXy0gITyVFPjvdsDfE6339aitpsyAgjG5lk+O1lknIEdH/bI6D+Rg9QvwXu+HKw+HFoW91DwEFbV9UHK1O0ZAA3Itnxz9Yp1Aj/pkocAxXy9sPNAIx/29iwp4rsn6Gm9tf+znAJBr+WW1xToBWT28UMBI/bIKNT1qmWUClwFSfbLaZs4Qa0BmAABSKKsjIhw2YYgnKLsiKVrIhB14b5uAiPCdeFBNAxguBCNz78lrciz+Dmi3bRMIIK3IhEdot20CZPBEhIPLh9c6bRne2EgoyizrazXCo+2hiItyQgIIF/yRBMJfO0I4j3JSyE4sNqixbXyLoWMwso1yYrytYbj4LAItoV9FyLGqYATIGsqp8baGdcBKMQwNr1VoDWG9Da9UOC3NnHO0QO6RSjh6b2gOdGE9TZ8hz3PeWQLpHO+mWf4GzQnDDCdAes4uKDpTBxWPJ+bAyWtyjJwja2hOUBiOr3Vl5bK2gdNunqdZvosAxWv2oVNw4tG43pySk3HXMKSs0JnGZmdZBu5yFa9lOOEWwwnTi0LNdu/Zev3OL7WO4YQpmhVuZmRkrOwfv4zbvYHh+OcJAOndUVAM2/OLE1rL6I8W372V5zetCHx6dvZ6muU/JApjoO8yM/PXmc2fQrN8uwXwMDsX5v68ZNgcj2Xw3ExdbqHcHPrS0lUMKyCrBWhOGKQoKtUwP71T2GM1PDPbNHdOoWEBhhVq7BKgWcFvXIDjX9onwHcZFqBZYcTGHRgxYweidgkwHB81LJBMMv94fgCGp0AaDrQ5QwAAAABJRU5ErkJggg=='), auto;
+        }
+        .dumbledore:hover {
+        cursor: url('https://img.icons8.com/color/48/albus-dumbledore.png'), auto;
+        }
+    </style>
 </head>
-<body style="
-  cursor: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAFc0lEQVR4nO2Yf2xTVRTHK0pUIhIjMf5ATdi73dzuHcNm4GChZTNAEDeHG6CJRhINRv42Gv3DP0yIPxL9w8SIiTE65D2nBv5Q/DHHvd1G8McGJurabWyzuLHhGBAm7N17X3fMfd3KuvZtHX1dSeQkJ2ma5rzzued7zj2vHs81u4rMbCL52X7GWEOeBh/ff1NWggtGXvVk2cb2e3f/W19wV1aCS0p+GaOFmieLxg3tK2F412YluGDka8lIK1D/DVmTqa4d5zp6MyvBBcUvS0ZAMvwhgOe6bDyDG2iI61ov7PUtdD24YLgsBkBAUGIAdb/ZTEMb5gYCYaBdbsf2KOkISiKTEJLiZqC+pW7FH/10+R3c0HoUADe0AWhYvsTjtglKXowD2JXApy1W/LQbsU0d1XNDOxQDQGDq2iceN03S4k1jTUV5gpHBqRA2CMNfQuvKuzOJb+roHNdRZBKAxypR5xoAp4UlkuE/JCN7pgPEIMioYOSVK+0NbqAfEpNHqgoXTB094BqEoLgpVfLTqtEnKamdO4C2czoAj1UhBPXara4AmBQXCIovzgYx4UxVLd3Yl/S8e7mBulJC6NoB10a3xUidoCSaDoRg2LLvjcaC22eLyw10kBveZ1NXAYGpI/dWGU7JM4JhmWYlFMgwp3jnTKfIdW2PamJTR20pAQwUHTPyNmaefJA8KBh5QQaLNghGhtKFmLg7gmZzYWGquErn3EAnnSrAbQht+GK9tsyVvUhQPCAp2SspbheU8LSrQQlX9wmAZ0FSXMNbqibPzBDoSMarBjT6lkiKf57T6SePXQothfdNjcsNtMI00GZT10ZnguAGeiMjABuizbdIULIvMwh8zqLkicmYSh5qmTMN9L6po/MzNLTl2totWdFWSXFXJiCS4XcnJcUN9M4spw8To7UXDuYvzhhAyUDNe0Hx8wnL3twldUBVFRqW3Wzq2m9pQRjae5kDNNRdbzc1w32C4S8kw+EMIBqhzbdwYjMNzQZg6pp0ZdWAQ9qN9kTKSEaTo5Z8BJ95l5q6toXr6Ls0pHTA45bJw6RaUHIqUwhOyXNq0qQjI3XBqTXENQi1jYog2S0p7r1iKQWLTRio6oehxy04sw1geBuM99dAtGMDSLoaeIN3upRecg0gDtLoW2LRoqdSvT+k49Hf/QBnd6R0BSODpVNl9I27ybeQ2yTDrwtKLlyxlILFAP/UOkMMVUG0sxz4514F0O8qQByEFt6iXjkFJd8Lii/NuQonNjoCwJk6iIZLbQhTR2ZWAJIm1WFSLSn5QDB8Ph0A69gaZ4Cz22MA4VIQ7Q9Z2QdozV8sgniXpPhYuhWwjpSkBRDtLgPo89+ZdYg4zI8r7rEYedJqKfnWOuoDq7UEZPMKkC0lyX1w1klCtZcBwqVg9aw7Pm8AcZBQQIdQAOI+XAfRzlVTAIhzE5+uTgCI9pTLXAB0JQAM1UC0qwysX1fayVvtPmeAvzcmAnSVQS4ARhMAIpthPFIZT2o8UukIED2xNhEgvOoqAOiqjI3HnnLb1WfHOyAheTVOV+cCwN+ZAKB8oGqGybMDYGQ7RE+UJwN0r8lJBfYnAXRW2EmCk/YjDycnr7xv/aX5Bwiv35YEoLwnxQ08sj2hP6ae/PjgowAnq/bMP0CbbyGEAt0pISKP2JfV5Mwf711nN6rSup30XxUwPrgFYGSHGr8SBrYsmncAG6Jj/daUAKEAQO+mGeUU9/6q13KS/GWIwNuOEJ0VscYecUh+qOannCZvA4BnAXQE3nKECE2ARDYDDNYADNfGKnOq+miqP8hyZvCn/zHHnggleDeEA9Weq9Hsxg7766DDvw86AqGJy27U/qy+C/lr1W9ynec1+1/Yf6ftl2xQC79oAAAAAElFTkSuQmCC') 8 8, auto;
-  font-family: 'EB Garamond', sans-serif;
-  background-color: black;
-">
-</body>
+<body class = "harry-font">
+
 

@@ -52,10 +52,7 @@ class CoursesController
 
     public function addCourse()
     {
-        if($_SESSION['role'] === 'student'){
-            echo "You are not authorized to access this page";
-            exit;
-        }
+        
         $stmt = $this->db->prepare('INSERT INTO courses (course_name, Description) VALUES (:name, :description)');
         $stmt->execute([
             'name' => $_POST["name"],

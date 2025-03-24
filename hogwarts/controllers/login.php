@@ -43,10 +43,11 @@ class LoginController {
         $_SESSION["role"] = $user["role"];
         $_SESSION["username"] = $user["username"];
         
+        
         if($user["role"] === "student") {
             header("Location: ../controllers/home");
         } else {
-            header("Location: ../controllers/dashboard");
+            header("Location: ../controllers/professor/home");
         }
         exit;
     }

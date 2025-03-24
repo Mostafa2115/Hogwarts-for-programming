@@ -7,6 +7,7 @@ require 'controllers/home.php';
 require 'controllers/login.php';
 require 'controllers/signup.php';
 require 'controllers/challenge.php';
+require 'controllers/professor.php';
 
 $path = (require 'Config.php')['path'];
 
