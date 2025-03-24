@@ -133,10 +133,9 @@ INSERT INTO `Houses` (`house_name`, `total_points`, `house_description`, `house_
 ('Slytherin', 0, 'probably know that some of Slytherin’s most renowned members include Severus Snape and Draco Malfoy. But did you know that the Slytherin common room is located beneath the Black Lake, casting an eerie green light on its stone walls? Or that their house ghost, the Bloody Baron, is the most terrifying of all the Hogwarts ghosts?', 'https://img.icons8.com/color/48/slytherin.png');
 
 
-INSERT INTO Professors (name ,username, email, hashedPassword, role) VALUES
-('dumbledore','dumbledore', 'dumbledore@hogwarts.edu', 'hashed_pass1', 'admin'),
-('mcgonagall','mcgonagall', 'mcgonagall@hogwarts.edu', 'hashed_pass2', 'professor'),
-('snape','snape', 'snape@hogwarts.edu', 'hashed_pass3', 'professor');
+INSERT INTO professors (name,username,email,hashedPassword,role) VALUES 
+('dumbledore', 'dumbledore', 'dumbledore@hogwarts.edu', '$2y$10$yDWeorDQ9JejihSI6Gpkm.ibn2wMPpzwv28zyHZHXaa8J89e69oOK', 'admin'),
+('test', 'Prof.test', 'test@gmail.com', '$2y$10$i49iBWwS3QlTSJgOVifI3eMT.HtUqVo68kStayuz.4xt.Tsk0i3K6', 'professor');
 
 INSERT INTO Courses (course_name, Description, professor_id) VALUES
 ('Defense Against the Dark Arts', 'Learn to defend against dark magic.', 3),
