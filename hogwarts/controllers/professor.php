@@ -5,16 +5,27 @@ class ProfessorController
     public $header = 'Professors';
     public function __construct($db)
     {
-       
+        if (!isset($_SESSION["username"])) {
+            header("Location: ../../views/login.view.php");
+            exit;
+        }
         $this->db = $db;
     }
     public function getProfessorProfile(){
+        if($_SESSION["role"] === "student"){
+            echo "You are not allowed to view this page!";
+            exit;
+        }
         $GLOBALS['header'] = 'Home';
         require "views/homeProf.view.php";
         exit;
     }
     public function addProfessor()
     {
+        if ($_SESSION["role"] !== "admin") {
+            echo "You are not allowed to view this page!";
+            exit;
+        }
         if ($_SERVER["REQUEST_METHOD"] !== "POST") {
             http_response_code(405);
             echo "Method Not Allowed";
