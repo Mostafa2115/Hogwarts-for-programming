@@ -3,10 +3,11 @@
     require 'layouts/nav.view.php';
     
 ?>
+<!-- Left Side: Hufflepuff Image -->
+
 <!--body of the page-->
     
-<main class="bg-cover bg-center" style="background-image: url(http://www.transparenttextures.com/patterns/brick-wall-dark.png);">
-<div class="main-content p-6">
+<div class="p-6">
     <div class="overflow-x-auto">
         <table class="min-w-full shadow-lg rounded-2xl">
             <thead>

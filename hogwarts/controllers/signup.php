@@ -33,7 +33,7 @@
 
             if ($user) {
                 $_SESSION["error"] = "Username already exists!";
-                header("Location: /views/login.view.php");
+                header("Location: ../views/signup.view.php");
                 exit;
             }
 
@@ -41,7 +41,7 @@
             $stmt->execute([$name,$username,$email,password_hash($password, PASSWORD_DEFAULT), 'Egypt',1,$randomNumber = rand(1, 4)]);
 
             $_SESSION["username"] = $username;
-            header("Location: /views/login.view.php");
+            header("Location: ../views/login.view.php");
             exit;
         }
     }

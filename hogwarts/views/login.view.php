@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>Login</title>
     <meta charset="UTF-8">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -76,7 +77,7 @@
 
         <!-- Login Form with Fade-in animation -->
         <div class="w-full sm:w-2/5 pt-12 fade-in fade-in-delay-1 bg-transparent bg-opacity-25">
-            <form action="/php/Hogwarts-for-programming/hogwarts/controllers/login" method="POST" class="py-8 opacity-90 bg-transparent rounded-lg shadow-md">
+            <form action="/php/Hogwarts-for-programming/hogwarts/controllers/home" method="POST" class="py-8 opacity-90 bg-transparent rounded-lg shadow-md">
                 <input type="text" name="username" placeholder="Username" class="border-2 bg-transparent border-[#F1C232] p-3 rounded-full w-full mb-4" required>
                 <input type="password" name="password" placeholder="Password" class="border-2 bg-transparent border-[#F1C232] p-3 rounded-full w-full mb-4" required>
                 <input type="submit" name="submit" value="Login" class="text-white p-3 bg-transparent rounded-full w-full cursor-pointer transition-colors duration-300 hover:bg-[#908073]">

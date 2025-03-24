@@ -3,7 +3,7 @@
     require 'layouts/nav.view.php';
 ?>
 <!-- body of the page -->
-<main class="bg-cover bg-center" style="background-image: url(http://www.transparenttextures.com/patterns/brick-wall-dark.png);">
+<main>
 
 <?php if ($houses): ?>
      

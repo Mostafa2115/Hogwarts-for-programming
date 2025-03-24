@@ -25,8 +25,8 @@ CREATE TABLE `Houses` (
   `id` int PRIMARY KEY AUTO_INCREMENT,
   `house_name` varchar(100) NOT NULL DEFAULT 'Unknown',
   `total_points` int DEFAULT 0,
-  `house_description` varchar(1000) NOT NULL DEFAULT 'Unknown'
-  `house_logo` VARCHAR(255) NOT NULL,
+  `house_description` varchar(1000) NOT NULL DEFAULT 'Unknown',
+  `house_logo` VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE `Courses` (
@@ -87,31 +87,32 @@ CREATE TABLE `Student_Items` (
 );
 
 CREATE TABLE `Diagon_Alley` (
-  `item_id` int PRIMARY KEY AUTO_INCREMENT,
-  `item_name` varchar(100) NOT NULL,
-  `item_price` decimal(5,2) NOT NULL DEFAULT 0.00,
-  `image` VARCHAR(255) NOT NULL,
+  `item_id` INT PRIMARY KEY AUTO_INCREMENT,
+  `item_name` VARCHAR(100) NOT NULL,
+  `item_price` DECIMAL(5,2) NOT NULL DEFAULT 0.00,
+  `image` VARCHAR(255) NOT NULL
 );
+
 
 -- Add Foreign Keys
 ALTER TABLE `Students` ADD FOREIGN KEY (`house_id`) REFERENCES `Houses` (`id`);
 ALTER TABLE `Students` ADD FOREIGN KEY (`wand_id`) REFERENCES `Wands` (`id`);
 
-ALTER TABLE `House_Points_Log` ADD FOREIGN KEY (`student_id`) REFERENCES `Students` (`id`);
+
 ALTER TABLE `House_Points_Log` ADD FOREIGN KEY (`house_id`) REFERENCES `Houses` (`id`);
 
 ALTER TABLE `Courses` ADD FOREIGN KEY (`professor_id`) REFERENCES `Professors` (`id`);
 
-ALTER TABLE `Challenges` ADD FOREIGN KEY (`course_id`) REFERENCES `Courses` (`id`);
+ALTER TABLE `Challenges` ADD FOREIGN KEY (`course_id`) REFERENCES `Courses` (`id`) ON DELETE CASCADE;
 
-ALTER TABLE `Student_Challenge_Attempts` ADD FOREIGN KEY (`student_id`) REFERENCES `Students` (`id`);
-ALTER TABLE `Student_Challenge_Attempts` ADD FOREIGN KEY (`challenge_id`) REFERENCES `Challenges` (`id`);
+ALTER TABLE `Student_Challenge_Attempts` ADD FOREIGN KEY (`student_id`) REFERENCES `Students` (`id`) ON DELETE CASCADE;
+ALTER TABLE `Student_Challenge_Attempts` ADD FOREIGN KEY (`challenge_id`) REFERENCES `Challenges` (`id`) ON DELETE CASCADE;
 
 ALTER TABLE `Student_Items` ADD FOREIGN KEY (`student_id`) REFERENCES `Students` (`id`);
 ALTER TABLE `Student_Items` ADD FOREIGN KEY (`item_id`) REFERENCES `Diagon_Alley` (`item_id`);
 
 ALTER TABLE `Student_Courses` ADD FOREIGN KEY (`student_id`) REFERENCES `Students` (`id`);
-ALTER TABLE `Student_Courses` ADD FOREIGN KEY (`course_id`) REFERENCES `Courses` (`id`);
+ALTER TABLE `Student_Courses` ADD FOREIGN KEY (`course_id`) REFERENCES `Courses` (`id`) ON DELETE CASCADE;
 
 -- Insert Data
 INSERT INTO Wands (wood, core) VALUES
@@ -132,10 +133,10 @@ INSERT INTO `Houses` (`house_name`, `total_points`, `house_description`, `house_
 ('Slytherin', 0, 'probably know that some of Slytherin’s most renowned members include Severus Snape and Draco Malfoy. But did you know that the Slytherin common room is located beneath the Black Lake, casting an eerie green light on its stone walls? Or that their house ghost, the Bloody Baron, is the most terrifying of all the Hogwarts ghosts?', 'https://img.icons8.com/color/48/slytherin.png');
 
 
-INSERT INTO Professors (username, email, hashedPassword, role) VALUES
-('dumbledore', 'dumbledore@hogwarts.edu', 'hashed_pass1', 'admin'),
-('mcgonagall', 'mcgonagall@hogwarts.edu', 'hashed_pass2', 'professor'),
-('snape', 'snape@hogwarts.edu', 'hashed_pass3', 'professor');
+INSERT INTO Professors (name ,username, email, hashedPassword, role) VALUES
+('dumbledore','dumbledore', 'dumbledore@hogwarts.edu', 'hashed_pass1', 'admin'),
+('mcgonagall','mcgonagall', 'mcgonagall@hogwarts.edu', 'hashed_pass2', 'professor'),
+('snape','snape', 'snape@hogwarts.edu', 'hashed_pass3', 'professor');
 
 INSERT INTO Courses (course_name, Description, professor_id) VALUES
 ('Defense Against the Dark Arts', 'Learn to defend against dark magic.', 3),
@@ -156,14 +157,6 @@ INSERT INTO Challenges (name, course_id, points, challenge_type, start_date, dea
 INSERT INTO Student_Challenge_Attempts (student_id, challenge_id, score) VALUES
 (1, 1, 10), (2, 1, 15);
 
-INSERT INTO House_Points_Log (house_id, points_change, reason) VALUES
-(1, 50, 'Winning the House Cup');
-
-
-INSERT INTO Student_Items (student_id, item_id, quantity, total_price) VALUES
-(1, 1, 1, 12.50),  
-(2, 2, 2, 30.00);
-
 INSERT INTO diagon_alley (item_name, item_price, image) VALUES
 ('Elder Wand', 39.99, 'https://img.icons8.com/emoji/48/magic-wand.png'),
 ('Nimbus 2000', 299.99, 'https://img.icons8.com/color/96/broom.png'),
@@ -173,6 +166,12 @@ INSERT INTO diagon_alley (item_name, item_price, image) VALUES
 ('Sorting Hat', 79.99, 'https://img.icons8.com/external-wanicon-flat-wanicon/64/external-witch-hat-halloween-wanicon-flat-wanicon.png'),
 ('Marauder’s Map', 24.99, 'https://img.icons8.com/color/96/map.png'),
 ('Hedwig (Owl)', 149.99, 'https://img.icons8.com/color/96/owl.png');
+
+INSERT INTO Student_Items (student_id, item_id, quantity, total_price) VALUES
+(1, 1, 1, 12.50),  
+(2, 2, 2, 30.00);
+
+
 
 INSERT INTO `House_Points_Log` ( `house_id`, `points_change`, `reason`) VALUES
 ( 1, 10, 'Won the Quidditch match'),

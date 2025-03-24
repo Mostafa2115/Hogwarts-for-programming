@@ -7,7 +7,6 @@ class CoursesController
 
     public function __construct($db)
     {
-        session_start();
         if (!isset($_SESSION["username"])) {
             header("Location: ../views/login.view.php");
             exit;
@@ -18,71 +17,73 @@ class CoursesController
     public function getCourses()
     {
         $courses = $this->db->query('SELECT * FROM courses')->fetchAll(PDO::FETCH_OBJ);
-        require 'views/courses.view.php';
+        require 'views/courses/showAllcourses.view.php';
     }
 
-    public function getCourseById($id)
+    public function showCourse($id)
     {
         $stmt = $this->db->prepare('SELECT * FROM courses WHERE id = :id');
         $stmt->execute(['id' => $id]);
         $course = $stmt->fetch(PDO::FETCH_OBJ);
-        
+
         if (!$course) {
-            header("Location: ../views/courses.view.php");
+            echo "NOT FOUND";
             exit;
         }
 
-        require '../views/course.view.php';
-    }
-
-    public function addCourse()
-    {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST["name"], $_POST["Description"])) {
-            $stmt = $this->db->prepare('INSERT INTO courses (course_name, Description) VALUES (:name, :description)');
-            $stmt->execute([
-                'name' => $_POST["name"],
-                'description' => $_POST["Description"]
-            ]);
-            header('Location: ../controllers/courses');
-            exit;
-        }
-        
+        require 'views/courses/show.view.php';
     }
 
     public function editCourse($id)
     {
+        
         $stmt = $this->db->prepare('SELECT * FROM courses WHERE id = :id');
         $stmt->execute(['id' => $id]);
         $course = $stmt->fetch(PDO::FETCH_OBJ);
-
+        
         if (!$course) {
-            header("Location: ../views/courses.view.php");
+            echo "NOT FOUND";
             exit;
         }
+        
 
-        require '../views/editcourse.view.php';
+        require 'views/courses/edit.view.php';
     }
 
+    public function addCourse()
+    {
+        if($_SESSION['role'] === 'student'){
+            echo "You are not authorized to access this page";
+            exit;
+        }
+        $stmt = $this->db->prepare('INSERT INTO courses (course_name, Description) VALUES (:name, :description)');
+        $stmt->execute([
+            'name' => $_POST["name"],
+            'description' => $_POST["Description"]
+        ]);
+        header('Location: ../../controllers/courses');
+        exit;
+    }
     public function updateCourse($id)
     {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST["name"], $_POST["Description"])) {
-            $stmt = $this->db->prepare('UPDATE courses SET course_name = :name, Description = :description WHERE id = :id');
-            $stmt->execute([
-                'id' => $id,
-                'name' => $_POST["name"],
-                'description' => $_POST["Description"]
-            ]);
-        }
-        header("Location: ../views/courses.view.php");
+        
+        $stmt = $this->db->prepare('UPDATE courses SET course_name = :name, Description = :description WHERE id = :id');
+        $stmt->execute([
+            'id' => $id,
+            'name' => $_POST["name"],
+            'description' => $_POST["Description"]
+        ]);
+        header("Location: ../../../controllers/courses");
         exit;
     }
 
     public function deleteCourse($id)
     {
+        
         $stmt = $this->db->prepare('DELETE FROM courses WHERE id = :id');
         $stmt->execute(['id' => $id]);
 
-        header("Location: ../views/courses.view.php");
+        header("Location: ../../../controllers/courses");
         exit;
     }
 }

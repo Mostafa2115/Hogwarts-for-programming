@@ -2,7 +2,7 @@
     require 'layouts/header.view.php';
     require 'layouts/nav.view.php';
 ?>
-    <div class="bg-cover bg-center" style="background-image: url(http://www.transparenttextures.com/patterns/brick-wall-dark.png);">
+    <div>
 <?php if ($items): ?>
     <div>
     <div class="max-w-7xl mx-auto px-6 py-12">
