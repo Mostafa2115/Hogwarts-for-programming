@@ -5,7 +5,7 @@ return [
         'host' => 'localhost',
         'dbname' => 'hogwarts',
         'user' => 'root',
-        'password' => '10112003Ma.'
+        'password' => 'rootroot'
     ],
     'path' => '/php/Hogwarts-for-programming/hogwarts/controllers'
 ];

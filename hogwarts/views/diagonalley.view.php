@@ -2,9 +2,8 @@
     require 'layouts/header.view.php';
     require 'layouts/nav.view.php';
 ?>
-
-<div class="bg-cover bg-center" style="background-image: url(http://www.transparenttextures.com/patterns/brick-wall-dark.png);">
-    <?php if ($items): ?>
+    <div>
+<?php if ($items): ?>
     <div>
     <div class="max-w-7xl mx-auto px-6 py-12">
         
@@ -16,9 +15,9 @@
             <!-- Sticker Card -->
             <div class="bg-black shadow-lg rounded-2xl p-4 text-center">
             <img src="<?= htmlspecialchars($item->image) ?>" 
-        alt="Item Image" 
-        class="mx-auto hover:animate-bounce size-16 object-cover rounded-lg"
-        onerror="this.onerror=null; this.src='https://img.icons8.com/color/48/hogwarts-legacy-hufflepuff.png';">
+     alt="Item Image" 
+     class="mx-auto hover:animate-bounce size-16 object-cover rounded-lg"
+     onerror="this.onerror=null; this.src='https://img.icons8.com/color/48/hogwarts-legacy-hufflepuff.png';">
 
                 <h2 class="text-lg font-bold text-[#d3a840] mt-2"><?= htmlspecialchars($item->item_name) ?></h2>
                 
@@ -28,19 +27,19 @@
     <input type="hidden" name="student_id" value="<?= htmlspecialchars($item->student_id) ?>"> 
     <button type="submit" class="flex items-center text-white py-2 rounded-lg shadow-lg hover:bg-[#b38a30] transition relative group overflow-hidden">
         <img class = "size-4" src="https://img.icons8.com/dusk/64/fantasy.png" alt="fantasy"/><span class="text-sm ml-2">Accio Purchase!</span>
-                    <!-- Magic Glow Effect -->
-                    <span class="absolute inset-0 bg-yellow-400 opacity-0 group-hover:opacity-20 transition duration-300 blur-xl"></span>
+                 <!-- Magic Glow Effect -->
+                 <span class="absolute inset-0 bg-yellow-400 opacity-0 group-hover:opacity-20 transition duration-300 blur-xl"></span>
                 </button>
     </button>
-    </form>
+</form>
 
-    </div>
+                </div>
 
-</div>
-<?php endforeach; ?>
+            </div>
+            <?php endforeach; ?>
+        </div>
     </div>
-    </div>
-    </div>
+            </div>
 <?php endif; ?>
     </div>
 

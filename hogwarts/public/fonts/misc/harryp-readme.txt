@@ -13,4 +13,8 @@ Alt0167 will save time by typing the word Potter whole.
 
 All best
 
+<<<<<<< HEAD:hogwarts/public/fonts/misc/harryp-readme.txt
 GM
+=======
+GM
+>>>>>>> e6257c2bc2d2b6ce8d1b3c744639ea66be5870b8:hogwarts/views/public/fonts/misc/harryp-readme.txt

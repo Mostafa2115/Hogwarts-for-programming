@@ -20,13 +20,14 @@
         }
     </style>
 <!-- Cedric Diggory -->
-<main class="max-w-7xl mx-auto py-12 pl-16 flex flex-col bg-cover bg-center" style="background-image: url(http://www.transparenttextures.com/patterns/brick-wall-dark.png);">       
+<main class="max-w-7xl mx-auto py-12 pl-16 flex flex-col bg-cover bg-center">       
     <!-- Hero section -->
-        <div class="flex flex-row justify-between animate-slide-in">
+        <div class="flex flex-row justify-between">
             <!-- Student Info -->
             <div class="flex flex-col rounded-lg w-1/2">
                     <div class="space-y-6">
-                    <h2 class="text-4xl font-semibold text-[#d3a840] pt-4 animate-float">Welcome back ,<?= htmlspecialchars($student->name)?></h2>
+                    <h2 class="text-4xl font-semibold text-[#d3a840] pt-4">Welcome <?= htmlspecialchars($student->name)?></h2>
+                    
                        
                        <div class="text-white pt-6 ">
                             <section class="text-lg leading-relaxed">
@@ -176,6 +177,8 @@
 
          
     </main>
+          
+<?php require 'layouts/footer.view.php';?>
 
 </body>
 </html>

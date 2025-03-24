@@ -1,0 +1,6 @@
+<<<<<<< HEAD:hogwarts/public/info.txt
+﻿license: Freeware
+=======
+license: Freeware
+>>>>>>> e6257c2bc2d2b6ce8d1b3c744639ea66be5870b8:hogwarts/views/public/info.txt
+link: https://www.fontspace.com/harry-p-font-f44342

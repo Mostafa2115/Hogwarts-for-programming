@@ -4,7 +4,6 @@
     require '../../views/layouts/header.view.php';
     require '../../views/layouts/nav.view.php';
 ?>
-
 <div class="container bg-white p-4">
     <h1>Add Course</h1>
     <form action="../../controllers/courses/add" method="post">

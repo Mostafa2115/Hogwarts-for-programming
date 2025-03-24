@@ -3,23 +3,50 @@
     require 'views/layouts/header.view.php';    
     require 'views/layouts/nav.view.php';
 ?>
-<!-- Left Side: Hufflepuff Image -->
 
-<!-- body -->
-<div class="container bg-white p-5 mt-5">
-    <h1>Edit Course</h1>
-    <form action="../../../controllers/courses/edit/<?php echo $id ?>" method="post">
-        <input type="hidden" name="_method" value="PUT">
-        <div class="form-group">
-            <label for="name">Course Name</label>
-            <input type="text" class="form-control" id="name" name="name" required value="<?= htmlspecialchars($course->course_name); ?>">
+<!-- Body -->
+<div class="flex justify-center mt-10 mb-16">
+    <div class="shadow-lg rounded-lg w-96 p-6" style="
+            background-color: #f0c569;
+            background-image: url('https://www.transparenttextures.com/patterns/retina-wood.png');
+        ">
+
+        <!-- Card Header -->
+        <div class="text-white bg-[#634d17] text-center py-3 rounded-2xl">
+            <h2 class="text-xl font-semibold">Edit Course</h2>
         </div>
-        <div class="form-group">
-            <label for="Description">Description</label>
-            <input type="text" class="form-control" id="Description" name="Description" required value="<?= htmlspecialchars($course->Description); ?>">
+
+        <!-- Card Body -->
+        <div class="p-4">
+            <form action="../../../controllers/courses/edit/<?= htmlspecialchars($id) ?>" method="post">
+                <input type="hidden" name="_method" value="PUT">
+
+                <!-- Course Name -->
+                <div class="mb-4">
+                    <label for="name" class="block text-[#634d17] font-semibold">Course Name</label>
+                    <input type="text" id="name" name="name" required 
+                           class="w-full mt-1 p-2 bg-transparent border border-[#634d17]  rounded-2xl focus:ring-2 focus:ring-[#a17d25]"
+                           value="<?= htmlspecialchars($course->course_name); ?>">
+                </div>
+
+                <!-- Description -->
+                <div class="mb-4">
+                    <label for="description" class="block text-[#634d17] font-semibold">Course Description</label>
+                    <textarea id="description" name="description" rows="4" required
+                              class="w-full mt-1 p-2 resize-none bg-transparent border border-[#634d17] rounded-2xl focus:ring-2 focus:ring-[#a17d25]"><?= htmlspecialchars($course->Description); ?></textarea>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="text-center">
+                    <button type="submit" 
+                            class="bg-[#a17d25] hover:bg-opacity-50 text-white py-2 px-4 rounded-2xl transition">
+                        Update Course
+                    </button>
+                </div>
+            </form>
         </div>
-        <input type="submit" class="btn btn-primary" value="Update">
-    </form>
+
+    </div>
 </div>
 
 <?php require 'views/layouts/footer.view.php'; ?>

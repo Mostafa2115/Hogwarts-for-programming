@@ -4,15 +4,67 @@
     require '../../views/layouts/header.view.php';
     require '../../views/layouts/nav.view.php';
 ?>
-<div class="container mx-auto">
-    <h1 class="text-4xl text-white text-center mt-10">Add Challenge</h1>
-    <form action="../../controllers/challenges/add/<?php echo $_GET['id'] ?>" method="post" class="flex flex-col items-center mt-10">
-        <input type="text" name="name" placeholder="Challenge Name" class="border-2 border-white p-2 rounded-lg w-1/3 text-black" required>
-        <input type="number" name="points" placeholder="Points" class="border-2 border-white p-2 rounded-lg w-1/3 text-black mt-5" required>
-        <input type="text" name="challenge_type" placeholder="Challenge Type" class="border-2 border-white p-2 rounded-lg w-1/3 text-black mt-5" required>
-        <input type="date" name="start_date" placeholder="Start Date" class="border-2 border-white p-2 rounded-lg w-1/3 text-black mt-5" required>
-        <input type="date" name="deadline" placeholder="Deadline" class="border-2 border-white p-2 rounded-lg w-1/3 text-black mt-5" required>
-        <textarea name="description" placeholder="Description" class="border-2 border-white p-2 rounded-lg w-1/3 text-black mt-5" required></textarea>
-        <button type="submit" class="bg-white text-black p-2 rounded-lg mt-5">Add Challenge</button>
-    </form>
+
+<div class="flex justify-center mt-10 mb-16">
+    <div class="shadow-lg rounded-lg w-96 p-6 bg-[#f0c569] bg-cover bg-center"
+         style="background-image: url('https://www.transparenttextures.com/patterns/retina-wood.png');">
+        
+        <!-- Card Header -->
+        <div class="text-white bg-[#634d17] text-center py-3 rounded-2xl">
+            <h2 class="text-xl font-semibold">Add Challenge</h2>
+        </div>
+
+        <!-- Card Body -->
+        <div class="p-4">
+            <form action="../../controllers/challenges/add/<?php echo $_GET['id'] ?>" method="post" class="space-y-4">
+                
+                <div>
+                    <label for="name" class="block text-[#634d17] font-semibold">Challenge Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter challenge name"
+                           class="border border-[#634d17] p-2 rounded-lg w-full text-black" required>
+                </div>
+
+                <div>
+                    <label for="points" class="block text-[#634d17] font-semibold">Points</label>
+                    <input type="number" id="points" name="points" placeholder="Enter points"
+                           class="border border-[#634d17] p-2 rounded-lg w-full text-black" required>
+                </div>
+
+                <div>
+                    <label for="challenge_type" class="block text-[#634d17] font-semibold">Challenge Type</label>
+                    <input type="text" id="challenge_type" name="challenge_type" placeholder="Enter type"
+                           class="border border-[#634d17] p-2 rounded-lg w-full text-black" required>
+                </div>
+
+                <div>
+                    <label for="start_date" class="block text-[#634d17] font-semibold">Start Date</label>
+                    <input type="date" id="start_date" name="start_date"
+                           class="border border-[#634d17] p-2 rounded-lg w-full text-black" required>
+                </div>
+
+                <div>
+                    <label for="deadline" class="block text-[#634d17] font-semibold">Deadline</label>
+                    <input type="date" id="deadline" name="deadline"
+                           class="border border-[#634d17] p-2 rounded-lg w-full text-black" required>
+                </div>
+
+                <div>
+                    <label for="description" class="block text-[#634d17] font-semibold">Description</label>
+                    <textarea id="description" name="description" placeholder="Enter description"
+                              class="border border-[#634d17] p-2 rounded-lg w-full text-black resize-none" required></textarea>
+                </div>
+
+                <!-- Card Footer -->
+                <div class="text-center">
+                    <button type="submit" class="bg-[#a17d25] hover:bg-opacity-50 text-white py-2 px-4 rounded-2xl">
+                        Add Challenge
+                    </button>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
 </div>
+
+<?php require 'layouts/footer.view.php'; ?>

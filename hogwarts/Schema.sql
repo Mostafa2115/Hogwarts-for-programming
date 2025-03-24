@@ -87,11 +87,12 @@ CREATE TABLE `Student_Items` (
 );
 
 CREATE TABLE `Diagon_Alley` (
-  `item_id` int PRIMARY KEY AUTO_INCREMENT,
-  `item_name` varchar(100) NOT NULL,
-  `item_price` decimal(5,2) NOT NULL DEFAULT 0.00,
+  `item_id` INT PRIMARY KEY AUTO_INCREMENT,
+  `item_name` VARCHAR(100) NOT NULL,
+  `item_price` DECIMAL(5,2) NOT NULL DEFAULT 0.00,
   `image` VARCHAR(255) NOT NULL
 );
+
 
 -- Add Foreign Keys
 ALTER TABLE `Students` ADD FOREIGN KEY (`house_id`) REFERENCES `Houses` (`id`);
@@ -156,10 +157,6 @@ INSERT INTO Challenges (name, course_id, points, challenge_type, start_date, dea
 INSERT INTO Student_Challenge_Attempts (student_id, challenge_id, score) VALUES
 (1, 1, 10), (2, 1, 15);
 
-INSERT INTO House_Points_Log (house_id, points_change, reason) VALUES
-(1, 50, 'Winning the House Cup');
-
-
 INSERT INTO diagon_alley (item_name, item_price, image) VALUES
 ('Elder Wand', 39.99, 'https://img.icons8.com/emoji/48/magic-wand.png'),
 ('Nimbus 2000', 299.99, 'https://img.icons8.com/color/96/broom.png'),
@@ -171,14 +168,8 @@ INSERT INTO diagon_alley (item_name, item_price, image) VALUES
 ('Hedwig (Owl)', 149.99, 'https://img.icons8.com/color/96/owl.png');
 
 INSERT INTO Student_Items (student_id, item_id, quantity, total_price) VALUES
-(1, 1, 1, 39.99),
-(1, 2, 1, 299.99),
-(2, 3, 1, 10.00),
-(2, 4, 1, 49.99),
-(3, 5, 1, 19.99),
-(3, 6, 1, 79.99),
-(1, 7, 1, 24.99),
-(2, 8, 1, 149.99);
+(1, 1, 1, 12.50),  
+(2, 2, 2, 30.00);
 
 
 
