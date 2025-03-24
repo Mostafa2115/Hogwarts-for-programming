@@ -8,12 +8,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-@font-face {
-    font-family: 'HarryP';
-    src: url('/public/fonts.php') format('truetype');    font-weight: normal;
-    font-style: normal;
-    
-}
+        @font-face {
+            font-family: 'HarryP';
+            src: url('/php/Hogwarts-for-programming/hogwarts/public/fonts.php') format('truetype');    font-weight: normal;
+            font-style: normal;
+        }
 
         body {
             cursor: url('https://img.icons8.com/color/32/snitch.png') 2 2, auto;

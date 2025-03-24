@@ -27,14 +27,17 @@
                         <div class="ml-10 flex items-baseline space-x-4 snitch:hover " >
                         <?php $path = "/php/Hogwarts-for-programming/hogwarts/controllers"; ?>
                         <?php if ($_SESSION["role"] === "student") {?>
-                            <a href="<?php echo $path ?>/home" class="snitch rounded-md snitch:hover <?php echo $_SERVER['REQUEST_URI'] === $path.'/' ?  "bg-[#F9A826] text-white" : "text-[#d3a840]" ?> px-3 py-2 text-sm font-medium" aria-current="page">Home</a>
+                            <a href="<?php echo $path ?>/home" class="snitch rounded-md snitch:hover <?php echo $_SERVER['REQUEST_URI'] === $path.'/home' ?  "bg-[#F9A826] text-white" : "text-[#d3a840] hover:bg-[#634d17] hover:text-white hover:bg-opacity-50" ?> px-3 py-2 text-sm font-medium" aria-current="page">Home</a>
                         <?php } else { ?>
-                            <a href="<?php echo $path ?>/professor/home" class="snitch rounded-md snitch:hover <?php echo $_SERVER['REQUEST_URI'] === $path.'/homeProf' ?  "bg-[#F9A826] text-white" : "text-[#d3a840]" ?> px-3 py-2 text-sm font-medium" aria-current="page">Home</a>
+                            <a href="<?php echo $path ?>/professor/home" class="snitch rounded-md snitch:hover <?php echo $_SERVER['REQUEST_URI'] === $path.'/homeProf' ?  "bg-[#F9A826] text-white" : "text-[#d3a840] hover:bg-[#634d17] hover:text-white hover:bg-opacity-50" ?> px-3 py-2 text-sm font-medium" aria-current="page">Home</a>
                         <?php } ?>
+                        <?php if ($_SESSION["role"] !== "student") {?>
                             <a href="<?php echo $path ?>/dashboard"class="dumbledore rounded-md <?php echo $_SERVER['REQUEST_URI'] === $path.'/dashboard' ?  "bg-[#F9A826] text-white" : "text-[#d3a840] hover:bg-[#2E2A47] hover:text-white" ?> px-3 py-2 text-sm font-medium">Dashboard</a>
+                        <?php } ?>
                             <a href="<?php echo $path ?>/courses" class="rounded-md dumbledore <?php echo $_SERVER['REQUEST_URI'] === $path.'/courses' ?  "bg-[#F9A826] text-white" : "text-[#d3a840] hover:bg-[#2E2A47] hover:bg-opacity-50 hover:text-white" ?> px-3 py-2 text-sm font-medium">Courses</a>
-
+                        <?php if ($_SESSION["role"] === "student") {?>
                             <a href="<?php echo $path ?>/diagonalley" class="rounded-md  snitch <?php echo $_SERVER['REQUEST_URI'] === $path.'/diagonalley' ?  "bg-[#F9A826] text-white" : "text-[#d3a840] hover:bg-[#634d17] hover:text-white hover:bg-opacity-50" ?> px-3 py-2 text-sm font-medium">Diagon Alley</a>
+                        <?php } ?>
                             <a href="<?php echo $path ?>/leaderboard" class="rounded-md snitch <?php echo $_SERVER['REQUEST_URI'] === $path.'/leaderboard' ?  "bg-[#F9A826] text-white" : "text-[#d3a840] hover:bg-[#634d17] hover:text-white hover:bg-opacity-50" ?> px-3 py-2 text-sm font-medium">Leader Board</a>
                         </div>
                     </div>
@@ -56,10 +59,13 @@
             <?php } else { ?>
                 <a href="<?php echo $path ?>/professor/home" class="block rounded-md bg-[#F9A826] text-white px-3 py-2 text-base font-medium" aria-current="page">Home</a>
             <?php } ?>
+            <?php if ($_SESSION["role"] !== "student") {?>
                 <a href="<?php echo $path ?>/dashboard" class="block rounded-md text-[#F9A826] hover:bg-[#2E2A47] hover:text-white px-3 py-2 text-base font-medium">Dashboard</a>
-            
+            <?php } ?>
                 <a href="<?php echo $path ?>/courses" class="block rounded-md text-[#F9A826] hover:bg-[ #2E2A47] hover:text-white px-3 py-2 text-base font-medium">Courses</a>
+            <?php if ($_SESSION["role"] === "student") {?>
                 <a href="<?php echo $path ?>/diagonalley" class="block rounded-md text-[#F9A826] hover:bg-[#2E2A47] hover:text-white px-3 py-2 text-base font-medium">Diagon Alley</a>
+            <?php } ?>
                 <a href="<?php echo $path ?>/leaderboard" class="block rounded-md text-[#F9A826] hover:bg-[#2E2A47] hover:text-white px-3 py-2 text-base font-medium">Leader Board</a>
             </div>
         </div>

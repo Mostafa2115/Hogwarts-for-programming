@@ -9,7 +9,7 @@ require 'controllers/signup.php';
 require 'controllers/challenge.php';
 require 'controllers/professor.php';
 
-$path = (require 'Config.php')['path'];
+$GLOBALS['path'] = (require 'Config.php')['path'];
 
 $url = parse_url($_SERVER['REQUEST_URI'])['path'];
 $method = strtolower($_SERVER['REQUEST_METHOD']);
@@ -31,7 +31,7 @@ foreach ($routes[$method] as $route => $handler) {
     
     if (preg_match("#^$pattern$#", $url, $matches)) {
         array_shift($matches);
-        
+
         [$controller, $methodHandler] = $handler;
         $instance = new $controller($db);
         $GLOBALS['header'] = $instance->header;

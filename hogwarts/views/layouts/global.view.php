@@ -18,7 +18,7 @@
 
         @font-face {
         font-family: 'HarryP';
-        src: url('/public/fonts.php') format('truetype');    font-weight: normal;
+        src: url('../public/fonts.php') format('truetype');    font-weight: normal;
         font-style: normal;
     
         }
@@ -73,5 +73,5 @@
         }
     </style>
 </head>
-<body class = "harry-font snitch h-auto" style="background-image: url('../../public/login\ backgroundd.png')">
+<body class = "harry-font snitch h-auto" style="background-image: url('../public/login\ backgroundd.png')">
    
