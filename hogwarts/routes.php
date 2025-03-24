@@ -12,6 +12,11 @@ return [
         "$path/courses/show/{id}" => [CoursesController::class, "showCourse"],
         "$path/professor/home" => [ProfessorController::class, "getProfessorProfile"],
         "$path/courses/enroll/{id}" => [CoursesController::class, "enrollCourse"],
+        "$path/login" => [LoginController::class, "getLogin"],
+        "$path/signup" => [SignupController::class, "getSignup"],
+        "$path/courses/add" => [CoursesController::class, "addForm"],
+        "$path/challenges/add/{course_id}" => [ChallengeController::class, "addForm"],
+
     ],
     "post" => [
         "$path/signup" => [SignupController::class, "postSignup"],

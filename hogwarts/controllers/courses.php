@@ -14,6 +14,11 @@ class CoursesController
         $this->db = $db;
     }
 
+    public function addForm()
+    {
+        require 'views/courses/add.view.php';
+    }
+
     public function getCourses()
     {
         if($_SESSION['role'] === 'student')
@@ -97,7 +102,7 @@ class CoursesController
         $stmt->execute([
             'id' => $id,
             'name' => $_POST["name"],
-            'description' => $_POST["Description"]
+            'description' => $_POST["description"]
         ]);
         header("Location: ../../../controllers/courses");
         exit;

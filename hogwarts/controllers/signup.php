@@ -8,6 +8,10 @@
         {
             $this->db = $db;
         }
+        public function getSignup()
+        {
+            require "views/signup.view.php";
+        }
         public function postSignup()
         {
             if ($_SERVER["REQUEST_METHOD"] !== "POST") {
@@ -22,7 +26,7 @@
 
             if (empty($username) || empty($password) || empty($name) || empty($email)) {
                 $_SESSION["error"] = "All fields are required!";
-                header("Location: ../views/signup.view.php");
+                header("Location: ../controllers/signup");
                 exit;
             }
 
@@ -33,7 +37,7 @@
 
             if ($user) {
                 $_SESSION["error"] = "Username already exists!";
-                header("Location: ../views/signup.view.php");
+                header("Location: ../controllers/signup");
                 exit;
             }
 
@@ -44,7 +48,7 @@
             $stmt->execute([$name,$username,$email,password_hash($password, PASSWORD_DEFAULT), 'Egypt',$wand_id,$house_id]);
 
             $_SESSION["username"] = $username;
-            header("Location: ../views/login.view.php");
+            header("Location: ../controllers/login");
             exit;
         }
     }

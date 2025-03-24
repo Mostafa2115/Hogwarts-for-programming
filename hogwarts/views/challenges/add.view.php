@@ -1,8 +1,7 @@
 <?php
     $header = 'Add Challenge';
-    session_start();
-    require '../../views/layouts/header.view.php';
-    require '../../views/layouts/nav.view.php';
+    require 'views/layouts/header.view.php';
+    require 'views/layouts/nav.view.php';
 ?>
 
 <div class="flex justify-center mt-10 mb-16">
@@ -16,7 +15,7 @@
 
         <!-- Card Body -->
         <div class="p-4">
-            <form action="../../controllers/challenges/add/<?php echo $_GET['id'] ?>" method="post" class="space-y-4">
+            <form action="../../../controllers/challenges/add/<?php echo $course_id ?>" method="post" class="space-y-4">
                 
                 <div>
                     <label for="name" class="block text-[#634d17] font-semibold">Challenge Name</label>
@@ -67,4 +66,4 @@
     </div>
 </div>
 
-<?php require '../layouts/footer.view.php'; ?>
+<?php require 'views/layouts/footer.view.php'; ?>

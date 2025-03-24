@@ -6,7 +6,7 @@
 <main class="bg-cover h-screen bg-center" style="font-family: 'EB Garamond' , 'sans-serif';">
 <div class="p-6">
 <?php if($_SESSION['role'] !== 'student') {?>
-<a href="../views/courses/add.view.php" class="px-3 py-1 bg-[#d3a840] text-white rounded-md hover:opacity-25 transition mb-4 inline-block">Add Course</a>
+<a href="../controllers/courses/add" class="px-3 py-1 bg-[#d3a840] text-white rounded-md hover:opacity-25 transition mb-4 inline-block">Add Course</a>
 <?php } ?>
     <div class="overflow-x-auto">
         <table class="min-w-full border-black rounded-2xl">
