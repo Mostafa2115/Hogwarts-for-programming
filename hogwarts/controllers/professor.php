@@ -11,13 +11,16 @@ class ProfessorController
         }
         $this->db = $db;
     }
+    public function addForm()
+    {
+        require 'views/professors/add.view.php';
+    }
     public function getProfessorProfile(){
         if($_SESSION["role"] === "student"){
             echo "You are not allowed to view this page!";
             exit;
         }
-        $GLOBALS['header'] = 'Home';
-        require "views/homeProf.view.php";
+        require "views/professors/home.view.php";
         exit;
     }
     public function addProfessor()
@@ -38,7 +41,7 @@ class ProfessorController
         $role = trim($_POST["role"]);
         if (empty($email) || empty($username) || empty($password) || empty($role)) {
             $_SESSION["error"] = "All fields are required!";
-            header("Location: ../views/professors/add.view.php");
+            header("Location: ../controllers/professor/add");
             exit;
         }
         $stmt = $this->db->prepare("SELECT id FROM professors WHERE username = ?");
@@ -46,14 +49,14 @@ class ProfessorController
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
         if ($user) {
             $_SESSION["error"] = "Username already exists!";
-            require "../hogwarts/views/professors/add.view.php";
+            header("Location: ../controllers/professor/add");
             exit;
         }
 
         $stmt = $this->db->prepare("INSERT INTO professors (name,username,email,hashedPassword,role) VALUES (?,?,?,?,?)");
         $stmt->execute([$name, $username, $email, password_hash($password, PASSWORD_DEFAULT), $role]);
         $_SESSION["username"] = $username;
-        header("Location: ../controllers/professor/home");
+        header("Location: ../controllers/dashboard");
         exit;
     }
     public function updateCourseByAdmin($id)

@@ -1,8 +1,7 @@
 <?php
-    $header = 'Home';
-    session_start();
-    require '../layouts/header.view.php';
-    require '../layouts/nav.view.php';
+    $GLOBALS['header'] = 'Home';
+    require 'views/layouts/header.view.php';
+    require 'views/layouts/nav.view.php';
 ?>
  <style>
         @keyframes slide-in {
@@ -33,4 +32,4 @@
 </body>
 </html>
 
-<?php require '../layouts/footer.view.php';?>
+<?php require 'views/layouts/footer.view.php';?>

@@ -1,8 +1,7 @@
 <?php
-    $header = 'Add Professor';
-    session_start();
-    require '../layouts/header.view.php';
-    require '../layouts/nav.view.php';
+    $GLOBALS['header'] = 'Add Professor';
+    require 'views/layouts/header.view.php';
+    require 'views/layouts/nav.view.php';
 ?>
 
 <div class="flex justify-center mt-10 mb-16" style="font-family: 'EB Garamond' , 'sans-serif';">
@@ -10,7 +9,7 @@
 
         <?php if (isset($_SESSION['error'])): ?>
             <div class="text-red-500 text-center mb-4">
-                <?= $_SESSION['error']; ?>
+                <?= $_SESSION['error']; unset($_SESSION['error']);?>
             </div>
         <?php endif; ?>
         <!-- Card Header -->
@@ -68,4 +67,4 @@
     </div>
 </div>
 
-<?php require '../layouts/footer.view.php'; ?>
+<?php require 'views/layouts/footer.view.php'; ?>
