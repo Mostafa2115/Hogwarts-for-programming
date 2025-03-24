@@ -13,6 +13,10 @@
         }
         public function getStudentProfile()
         {
+            if($_SESSION["role"] !== "student"){
+                echo "You are not allowed to view this page!";
+                exit;
+            }
             // student 
             $stmt = $this->db->prepare("SELECT * FROM Students WHERE username = :username");
             $stmt->execute(['username' => $_SESSION["username"]]);      

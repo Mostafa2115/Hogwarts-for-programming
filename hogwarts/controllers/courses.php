@@ -8,7 +8,7 @@ class CoursesController
     public function __construct($db)
     {
         if (!isset($_SESSION["username"])) {
-            header("Location: ../views/login.view.php");
+            header("Location: ../../../views/login.view.php");
             exit;
         }
         $this->db = $db;

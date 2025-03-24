@@ -138,8 +138,8 @@ INSERT INTO professors (name,username,email,hashedPassword,role) VALUES
 ('test', 'Prof.test', 'test@gmail.com', '$2y$10$i49iBWwS3QlTSJgOVifI3eMT.HtUqVo68kStayuz.4xt.Tsk0i3K6', 'professor');
 
 INSERT INTO Courses (course_name, Description, professor_id) VALUES
-('Defense Against the Dark Arts', 'Learn to defend against dark magic.', 3),
-('Potions', 'Master potion-making.', 3),
+('Defense Against the Dark Arts', 'Learn to defend against dark magic.', 1),
+('Potions', 'Master potion-making.', 1),
 ('Transfiguration', 'Change objects into different forms.', 2);
 
 INSERT INTO Students (name, username, email, hashedPassword, country_name, wand_id, house_id) VALUES
