@@ -45,7 +45,7 @@ class LoginController {
         
         
         if($user["role"] === "student") {
-            header("Location: ../controllers/home");
+            header("Location: /php/Hogwarts-for-programming/hogwarts/controllers/home");
         } else {
             header("Location: ../controllers/professor/home");
         }

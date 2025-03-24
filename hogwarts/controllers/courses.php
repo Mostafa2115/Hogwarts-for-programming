@@ -59,6 +59,7 @@ class CoursesController
             'description' => $_POST["Description"]
         ]);
         header('Location: ../../controllers/courses');
+
         exit;
     }
     public function updateCourse($id)

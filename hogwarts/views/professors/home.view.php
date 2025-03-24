@@ -18,10 +18,9 @@
 </style>
     </style>
 <!-- Cedric Diggory -->
-<main class="max-w-7xl animate-slide-in mx-auto h-screen flex items-center justify-center flex-col text-center bg-cover bg-center px-8" 
-      style="background-image: url(http://www.transparenttextures.com/patterns/brick-wall-dark.png);">
+<main class="max-w-7xl animate-slide-in mx-auto h-screen flex items-center justify-center flex-col text-center bg-cover bg-center px-8" >
       <h1 class="text-[#d3a840] text-3xl md:text-4xl font-bold max-w-3xl leading-relaxed">
-    Welcome, Professor.
+    Welcome, Professor (Here add prof name)
 </h1>
 <h2 class="text-[#d3a840] text-xl md:text-2xl font-semibold max-w-3xl mt-2 ">
     The future of the wizarding world rests in your hands. Train your young witches and wizards well.

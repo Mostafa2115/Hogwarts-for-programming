@@ -3,7 +3,7 @@
     require 'layouts/nav.view.php';
 ?>
 <!-- body of the page -->
-<main>
+<main class="h-screen mb-20">
 
 <?php if ($houses): ?>
      

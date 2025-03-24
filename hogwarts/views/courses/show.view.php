@@ -5,11 +5,9 @@
 ?>
 
 <!-- Body -->
-<div class="flex justify-center mt-10 mb-16">
-    <div class="shadow-lg rounded-lg w-96 p-6" style="
-            background-color: #f0c569;
-            background-image: url('https://www.transparenttextures.com/patterns/retina-wood.png');
-        ">
+<div class="flex justify-center mt-10 mb-16" style="font-family: 'EB Garamond' , 'sans-serif';">
+    <div class="shadow-lg rounded-lg w-96 p-6"  
+    style="background-color:rgb(192, 172, 128);">
 
         <!-- Card Header -->
         <div class="text-white bg-[#634d17] text-center py-3 rounded-2xl">
