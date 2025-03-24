@@ -1,13 +1,18 @@
 <?php
     $header = 'Add Professor';
     session_start();
-    require '../../views/layouts/header.view.php';
-    require '../../views/layouts/nav.view.php';
+    require '../layouts/header.view.php';
+    require '../layouts/nav.view.php';
 ?>
 
 <div class="flex justify-center mt-10 mb-16" style="font-family: 'EB Garamond' , 'sans-serif';">
     <div class="shadow-lg rounded-lg w-96 p-6" style="background-color:rgb(192, 172, 128);">
 
+        <?php if (isset($_SESSION['error'])): ?>
+            <div class="text-red-500 text-center mb-4">
+                <?= $_SESSION['error']; ?>
+            </div>
+        <?php endif; ?>
         <!-- Card Header -->
         <div class="text-white bg-[#634d17] text-center py-3 rounded-2xl focus:outline-none focus:ring-0">
             <h2 class="text-xl font-semibold">Add Professor</h2>
@@ -15,7 +20,7 @@
 
         <!-- Card Body -->
         <div class="p-4">
-            <form action="../../controllers/professor" method="post">
+            <form action="/php/Hogwarts-for-programming/hogwarts/controllers/professor" method="post">
                 <!-- Professor Name -->
                 <div class="mb-4">
                     <label for="name" class="block text-[#634d17] font-semibold">Professor Name</label>
@@ -63,4 +68,4 @@
     </div>
 </div>
 
-<?php require '../../views/layouts/footer.view.php'; ?>
+<?php require '../layouts/footer.view.php'; ?>

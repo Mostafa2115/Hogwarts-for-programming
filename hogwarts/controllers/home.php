@@ -66,7 +66,7 @@
             FROM Student_Items i
             JOIN Diagon_Alley d ON i.item_id = d.item_id
             WHERE i.student_id = :student_id
-        ');
+            ');
             $stmt->execute([':student_id' => $student->id]);
             $items = $stmt->fetchAll(PDO::FETCH_OBJ);
             

@@ -1,18 +1,16 @@
 <?php
-class ProfessorsController
+class ProfessorController
 {
     protected $db;
     public $header = 'Professors';
     public function __construct($db)
     {
-        if (!isset($_SESSION["role"]) || $_SESSION["role"] !== "professor") {
-            header("Location: ../views/login.view.php");
-            exit;
-        }
+       
         $this->db = $db;
     }
     public function getProfessorProfile(){
-        header("Location: ../../views/professors/home.view.php");
+        $GLOBALS['header'] = 'Home';
+        require "views/homeProf.view.php";
         exit;
     }
     public function addProfessor()
@@ -37,14 +35,14 @@ class ProfessorsController
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
         if ($user) {
             $_SESSION["error"] = "Username already exists!";
-            header("Location: ../views/professors/add.view.php");
+            require "../hogwarts/views/professors/add.view.php";
             exit;
         }
 
         $stmt = $this->db->prepare("INSERT INTO professors (name,username,email,hashedPassword,role) VALUES (?,?,?,?,?)");
         $stmt->execute([$name, $username, $email, password_hash($password, PASSWORD_DEFAULT), $role]);
         $_SESSION["username"] = $username;
-        header("Location: ../views/professors/home.view.php");
+        header("Location: ../controllers/professor/home");
         exit;
     }
     public function updateCourseByAdmin($id)

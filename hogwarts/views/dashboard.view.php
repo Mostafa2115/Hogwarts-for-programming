@@ -4,6 +4,9 @@
 ?>
 <main class="bg-cover bg-center" style="font-family: 'EB Garamond' , 'sans-serif';">
 <div class="main-content p-6">
+<?php if($_SESSION['role'] === 'admin'){?>
+<a href="../views/professors/add.view.php" class="px-3 py-1 bg-[#d3a840] text-white rounded-md hover:opacity-25 transition mb-4 inline-block">Add Professor</a>
+<?php } ?>
     <div class="overflow-x-auto">
         <table class="min-w-full border-black rounded-2xl">
             <thead>

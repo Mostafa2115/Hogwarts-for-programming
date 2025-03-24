@@ -67,4 +67,4 @@
     </div>
 </div>
 
-<?php require 'layouts/footer.view.php'; ?>
+<?php require '../layouts/footer.view.php'; ?>

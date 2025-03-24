@@ -1,11 +1,13 @@
 <?php
+    $GLOBALS['header'] = "Login";
+    session_start();
     require 'layouts/global.view.php';
 ?>
 
 <div class="text-white flex flex-col items-center justify-center text-center" >
 
     <div class="mt-4 fade-in fade-in-delay-1">
-        <?php session_start(); 
+        <?php
         if (!empty($_SESSION['error'])) {
             echo "<p class='text-red-500'>{$_SESSION['error']}</p>"; 
             unset($_SESSION['error']);
@@ -28,7 +30,7 @@
 
         <!-- Login Form with Fade-in animation -->
         <div class="w-full sm:w-2/5 pt-12 fade-in fade-in-delay-1 bg-transparent bg-opacity-25">
-            <form action="/php/Hogwarts-for-programming/hogwarts/controllers/home" method="POST" class="py-8 opacity-90 bg-transparent rounded-lg shadow-md">
+            <form action="../controllers/login" method="POST" class="py-8 opacity-90 bg-transparent rounded-lg shadow-md">
                 <input type="text" name="username" placeholder="Username" class="border-2 bg-transparent  p-3 rounded-full w-full mb-4" required>
                 <input type="password" name="password" placeholder="Password" class="border-2 bg-transparent p-3 rounded-full w-full mb-4" required>
                 <input type="submit" name="submit" value="Login" class="text-white p-3 bg-transparent snitch rounded-full w-full transition-colors duration-300">
