@@ -1,6 +1,8 @@
 <?php
-    require 'layouts/header.view.php';
-    require 'layouts/nav.view.php';
+    $header = 'Add Challenge';
+    session_start();
+    require '../../views/layouts/header.view.php';
+    require '../../views/layouts/nav.view.php';
 ?>
 
 <div class="flex justify-center mt-10 mb-16">

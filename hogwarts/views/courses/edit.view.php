@@ -1,5 +1,6 @@
 <?php
-    require 'views/layouts/header.view.php';
+    $GLOBALS['header'] = 'Edit Course';
+    require 'views/layouts/header.view.php';    
     require 'views/layouts/nav.view.php';
 ?>
 

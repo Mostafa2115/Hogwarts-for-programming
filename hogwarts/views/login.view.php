@@ -52,7 +52,8 @@
 
     </style>
 </head>
-<body class="text-white flex flex-col items-center justify-center text-center" style="font-family: 'EB Garamond', sans-serif; background-image: url(../public/login\ backgroundd.png);">
+<body class="text-white flex flex-col items-center justify-center text-center" style="font-family: 'EB Garamond', sans-serif; background-image: url(public/login\ backgroundd.png);">
+
     <div class="mt-4 fade-in fade-in-delay-1">
         <?php session_start(); 
         if (!empty($_SESSION['error'])) {
@@ -68,7 +69,7 @@
     
         <!-- Image Container with Scale-up animation and Floating effect -->
         <div class="text-center w-full sm:w-2/5 fade-in fade-in-delay-1">
-            <img src="../public/sorting-hat.png" alt="Sorting Hat" class="mx-auto mt-4 max-h-[300px] object-contain scale-up floating">
+            <img src="public/sorting-hat.png" alt="Sorting Hat" class="mx-auto mt-4 max-h-[300px] object-contain scale-up floating">
             <p class="text-white text-sm mx-4 mb-4" style="font-family: 'EB Garamond', sans-serif;">
                 Don the Sorting Hat to be placed into your rightful Hogwarts house. 
                 <br>The Sorting Hat's decision is final.

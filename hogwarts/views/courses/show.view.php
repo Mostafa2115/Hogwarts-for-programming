@@ -1,4 +1,5 @@
-<?php
+<?php 
+    $GLOBALS['header'] = 'Course Details';
     require 'views/layouts/header.view.php';
     require 'views/layouts/nav.view.php';
 ?>
