@@ -1,5 +1,5 @@
 <?php
-    $header = 'Add Challenge';
+    $GLOBALS['header'] = 'Add Challenge';
     require 'views/layouts/header.view.php';
     require 'views/layouts/nav.view.php';
 ?>

@@ -16,6 +16,7 @@ return [
         "$path/signup" => [SignupController::class, "getSignup"],
         "$path/courses/add" => [CoursesController::class, "addForm"],
         "$path/challenges/add/{course_id}" => [ChallengeController::class, "addForm"],
+        "$path/professor/add" => [ProfessorController::class, "addForm"],
 
     ],
     "post" => [
