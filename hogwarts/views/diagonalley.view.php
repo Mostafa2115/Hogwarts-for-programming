@@ -23,7 +23,7 @@
                 <h2 class="text-lg font-bold text-[#d3a840] mt-2"><?= htmlspecialchars($item->item_name) ?></h2>
                 
                 <div class="flex justify-center mt-2">
-                <form action="../controllers/diagonalley" method="POST">
+                <form action="../diagonalley" method="POST">
     <input type="hidden" name="item_id" value="<?= htmlspecialchars($item->item_id) ?>">
     <input type="hidden" name="student_id" value="<?= htmlspecialchars($item->student_id) ?>"> 
     <button type="submit" class="flex items-center text-white py-2 rounded-lg shadow-lg hover:bg-[#b38a30] transition relative group overflow-hidden">
