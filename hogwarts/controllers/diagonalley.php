@@ -3,11 +3,11 @@
     class DiagonAlleyController
     {
         private $db;
-        public $header = 'Diagon Alley';
+
         public function __construct($db)
         {
             if (!isset($_SESSION["username"])) {
-                header("Location: ../controllers/login");
+                header("Location: ../login");
                 exit;
             }
             $this->db = $db;
@@ -70,7 +70,7 @@
                 ':student_id' => $student_id
             ]);
 
-            header('Location: ../controllers/diagonalley');
+            header('Location: ../diagonalley');
             }
         }
     }

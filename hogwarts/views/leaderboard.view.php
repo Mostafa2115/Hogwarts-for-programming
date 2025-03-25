@@ -1,4 +1,5 @@
 <?php
+    $header = 'Leaderboard';
     require 'layouts/header.view.php';
     require 'layouts/nav.view.php';
 ?>

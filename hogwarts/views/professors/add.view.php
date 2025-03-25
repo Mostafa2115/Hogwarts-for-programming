@@ -1,5 +1,5 @@
 <?php
-    $GLOBALS['header'] = 'Add Professor';
+    $header = 'Add Professor';
     require 'views/layouts/header.view.php';
     require 'views/layouts/nav.view.php';
 ?>
@@ -19,7 +19,7 @@
 
         <!-- Card Body -->
         <div class="p-4">
-            <form action="/php/Hogwarts-for-programming/hogwarts/controllers/professor" method="post">
+            <form action="../professor" method="post">
                 <!-- Professor Name -->
                 <div class="mb-4">
                     <label for="name" class="block text-[#634d17] font-semibold">Professor Name</label>

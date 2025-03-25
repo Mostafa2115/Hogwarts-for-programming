@@ -1,4 +1,5 @@
 <?php
+    $header = 'Diagon Alley';
     require 'layouts/header.view.php';
     require 'layouts/nav.view.php';
 ?>

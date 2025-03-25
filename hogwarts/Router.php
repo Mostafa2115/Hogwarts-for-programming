@@ -9,7 +9,6 @@ require 'controllers/signup.php';
 require 'controllers/challenge.php';
 require 'controllers/professor.php';
 
-$GLOBALS['path'] = (require 'Config.php')['path'];
 
 $url = parse_url($_SERVER['REQUEST_URI'])['path'];
 $method = strtolower($_SERVER['REQUEST_METHOD']);
@@ -34,7 +33,6 @@ foreach ($routes[$method] as $route => $handler) {
 
         [$controller, $methodHandler] = $handler;
         $instance = new $controller($db);
-        $GLOBALS['header'] = $instance->header;
         if (in_array($method, ['put', 'delete'])) {
             $inputData = json_decode(file_get_contents("php://input"), true);
             $matches[] = $inputData;

@@ -1,5 +1,5 @@
 <?php 
-    $GLOBALS['header'] = 'Course Details';
+    $header = 'Course Details';
     require 'views/layouts/header.view.php';
     require 'views/layouts/nav.view.php';
 ?>
@@ -34,7 +34,7 @@
 
         <!-- Card Footer -->
         <div class="flex justify-center p-4">
-            <a href="../../../controllers/challenges/add/<?= $course->id; ?>" 
+            <a href="../../../challenges/add/<?= $course->id; ?>" 
                class="bg-[#a17d25] hover:bg-opacity-50 text-white py-2 px-4 rounded-2xl transition">
                Add Challenge
             </a>

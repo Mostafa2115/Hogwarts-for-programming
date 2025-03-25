@@ -1,5 +1,5 @@
 <?php
-    $GLOBALS['header'] = "Sign Up";
+    $header = "Sign Up";
     require 'layouts/global.view.php';
 ?>
 
@@ -28,7 +28,7 @@
 
         <!-- Login Form with Fade-in animation -->
         <div class="w-full sm:w-2/5 fade-in fade-in-delay-1 bg-transparent bg-opacity-25">
-            <form action="../controllers/signup" method="POST" class="py-8 opacity-90 bg-transparent rounded-lg shadow-md">
+            <form action="../signup" method="POST" class="py-8 opacity-90 bg-transparent rounded-lg shadow-md">
             <input type="text" name="name" placeholder="Name"  class="border-2 bg-transparent p-3 rounded-full w-full mb-2" required>
             <br><br>
             <input type="text" name="username" placeholder="Username" class="border-2 bg-transparent  p-3 rounded-full w-full mb-2" required>
@@ -43,7 +43,7 @@
         </form>
             <div class="flex gap-4 snitch">
                 <p>Already have an account? </p>
-                <a class="" href="../controllers/login">Login</a>
+                <a class="" href="../login">Login</a>
             </div>
     </div>
     </div>
