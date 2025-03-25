@@ -120,32 +120,34 @@
     </div>
 
     <?php if ($courses): ?>
-        <h1 class = "text-4xl text-[#d3a840] pt-6 mt-12">Courses</h1>
+    <h1 class="text-4xl text-[#d3a840] pt-6 mt-12">Courses</h1>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12 mt-6">
-        <?php foreach ($courses as $course): ?>
-            <div class="bg-black hover:opacity-50 text-white p-6 rounded-2xl shadow-lg">
-                
-                <div class="flex items-center space-x-4">
-                    <img class="w-20 h-20 rounded-full object-cover" 
-                         src="https://img.icons8.com/color/48/deathly-hallows.png"
-                         alt="deathly-hallows">    
+    <div class="max-w-6xl mx-auto"> 
+        <div class="grid w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-3 pr-6 gap-6 mt-6">
+            <?php foreach ($courses as $course): ?>
+                <div class="w-5/6 bg-black hover:opacity-50 text-white p-6 rounded-2xl shadow-lg">
+                    
+                    <div class="flex items-center space-x-4">
+                        <img class="w-16 h-16 rounded-full object-cover" 
+                             src="https://img.icons8.com/color/48/deathly-hallows.png"
+                             alt="deathly-hallows">    
 
-                    <div>
-                        <h2 class="text-2xl font-semibold"><?= htmlspecialchars($course->course_name) ?></h2>
+                        <div class="flex-1 min-w-0">
+                            <h2 class="text-lg font-semibold truncate"><?= htmlspecialchars($course->course_name) ?></h2>
 
-                        <span class="bg-[#d3a840] text-white px-3 py-1 rounded-lg text-sm">
-                            <?= htmlspecialchars($course->professor_name) ?>
-                        </span>
+                            <span class="bg-[#d3a840] text-white px-3 py-1 rounded-lg text-sm">
+                                <?= htmlspecialchars($course->professor_name) ?>
+                            </span>
+                        </div>
                     </div>
+
+                    <p class="text-gray-300 mt-3 line-clamp-3">
+                        <?= nl2br(htmlspecialchars($course->Description)) ?>
+                    </p>
+
                 </div>
-
-                <p class="text-gray-300 mt-3">
-                    <?= nl2br(htmlspecialchars($course->Description)) ?>
-                </p>
-
-            </div>
-        <?php endforeach; ?>
+            <?php endforeach; ?>
+        </div>
     </div>
 <?php endif; ?>
 
