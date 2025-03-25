@@ -1,5 +1,5 @@
 <?php
-    $GLOBALS['header'] = 'Add Challenge';
+    $header = 'Add Challenge';
     require 'views/layouts/header.view.php';
     require 'views/layouts/nav.view.php';
 ?>
@@ -15,7 +15,7 @@
 
         <!-- Card Body -->
         <div class="p-4">
-            <form action="../../../controllers/challenges/add/<?php echo $course_id ?>" method="post" class="space-y-4">
+            <form action="../../../challenges/add/<?php echo $course_id ?>" method="post" class="space-y-4">
                 
                 <div>
                     <label for="name" class="block text-[#634d17] font-semibold">Challenge Name</label>

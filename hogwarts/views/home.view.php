@@ -1,4 +1,5 @@
 <?php
+    $header = 'Home';
     require 'layouts/header.view.php';
     require 'layouts/nav.view.php';
 ?>

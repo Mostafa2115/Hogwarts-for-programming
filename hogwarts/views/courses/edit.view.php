@@ -1,5 +1,5 @@
 <?php
-    $GLOBALS['header'] = 'Edit Course';
+    $header= 'Edit Course';
     require 'views/layouts/header.view.php';    
     require 'views/layouts/nav.view.php';
 ?>
@@ -17,7 +17,7 @@
 
         <!-- Card Body -->
         <div class="p-4">
-            <form action="../../../controllers/courses/edit/<?= htmlspecialchars($id) ?>" method="post">
+            <form action="../../../courses/edit/<?= htmlspecialchars($id) ?>" method="post">
                 <input type="hidden" name="_method" value="PUT">
 
                 <!-- Course Name -->

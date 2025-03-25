@@ -1,5 +1,5 @@
 <?php
-    $GLOBALS['header'] = 'Home';
+    $header = 'Home';
     require 'views/layouts/header.view.php';
     require 'views/layouts/nav.view.php';
 ?>

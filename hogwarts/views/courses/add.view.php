@@ -1,5 +1,5 @@
 <?php
-    $GLOBALS['header'] = 'Add Course';
+    $header = 'Add Course';
     require 'views/layouts/header.view.php';
     require 'views/layouts/nav.view.php';
 ?>
@@ -17,7 +17,7 @@
 
         <!-- Card Body -->
         <div class="p-4">
-            <form action="../../controllers/courses/add" method="post">
+            <form action="../../courses/add" method="post">
                 
                 <!-- Course Name -->
                 <div class="mb-4">

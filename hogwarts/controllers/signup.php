@@ -3,7 +3,7 @@
     class SignupController
     {
         private $db;
-        public $header = "Signup";
+
         public function __construct($db)
         {
             $this->db = $db;
@@ -26,7 +26,7 @@
 
             if (empty($username) || empty($password) || empty($name) || empty($email)) {
                 $_SESSION["error"] = "All fields are required!";
-                header("Location: ../controllers/signup");
+                header("Location: ../signup");
                 exit;
             }
 
@@ -37,7 +37,7 @@
 
             if ($user) {
                 $_SESSION["error"] = "Username already exists!";
-                header("Location: ../controllers/signup");
+                header("Location: ../signup");
                 exit;
             }
 
@@ -48,7 +48,7 @@
             $stmt->execute([$name,$username,$email,password_hash($password, PASSWORD_DEFAULT), 'Egypt',$wand_id,$house_id]);
 
             $_SESSION["username"] = $username;
-            header("Location: ../controllers/login");
+            header("Location: ../login");
             exit;
         }
     }

@@ -3,11 +3,11 @@
     class LeaderboardController
     {
         private $db;
-        public $header = 'Leaderboard';
+
         public function __construct($db)
         {
             if (!isset($_SESSION["username"])) {
-                header("Location: ../controllers/login");
+                header("Location: ../login");
                 exit;
             }
             $this->db = $db;
