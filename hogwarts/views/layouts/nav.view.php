@@ -19,7 +19,7 @@
     <nav class="bg-transparent">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="flex h-16 items-center justify-between">
-                <div class="flex items-center">
+                <div class="hidden md:flex justify-between items-center w-full">
                     <div class="">
                     <img src="https://img.icons8.com/color/48/hufflepuff.png" alt="hufflepuff">              
                     </div>
@@ -39,6 +39,11 @@
                         <?php } ?>
                             <a href="/leaderboard" class="rounded-md snitch <?php echo $_SERVER['REQUEST_URI'] === '/leaderboard' ?  "bg-[#F9A826] text-white" : "text-[#d3a840] hover:bg-[#634d17] hover:text-white hover:bg-opacity-50" ?> px-3 py-2 text-sm font-medium">Leader Board</a>
                         </div>
+                    </div>
+                    <div class="ml-auto">
+                        <button class="snitch">
+                            <a href="/logout" class="snitch rounded-md <?php echo $_SERVER['REQUEST_URI'] === '/dashboard' ?  "bg-[#F9A826] text-white" : "text-[#d3a840] hover:bg-[#2E2A47] hover:text-white" ?> px-3 py-2 text-sm font-medium ">Logout</a>
+                        </button>
                     </div>
                 </div>
                 <div class="-mr-2 flex md:hidden">

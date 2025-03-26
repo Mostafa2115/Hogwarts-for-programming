@@ -8,7 +8,6 @@
             $this->db = $db;
         }
         public function getLogin() {
-            
             return require "views/login.view.php";
         }
 
@@ -52,6 +51,11 @@
             } else {
                 header("Location: ../professor/home");
             }
+            exit;
+        }
+        public function logout() {
+            session_destroy();
+            header("Location: ../login");
             exit;
         }
     }

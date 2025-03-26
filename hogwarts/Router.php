@@ -1,4 +1,5 @@
 <?php
+require 'Singleton.php';
 require 'controllers/courses.php';
 require 'controllers/leaderboard.php';
 require 'controllers/dashboard.php';
@@ -13,6 +14,7 @@ require 'controllers/professor.php';
 $url = parse_url($_SERVER['REQUEST_URI'])['path'];
 $method = strtolower($_SERVER['REQUEST_METHOD']);
 $routes = require 'routes.php';
+$db = Singleton::getDatabase();
 
 
 if ($method === 'post' && isset($_POST['_method'])) {
@@ -32,7 +34,7 @@ foreach ($routes[$method] as $route => $handler) {
         array_shift($matches);
 
         [$controller, $methodHandler] = $handler;
-        $instance = new $controller($db);
+        $instance = Singleton::getInstance($controller, $db);
         if (in_array($method, ['put', 'delete'])) {
             $inputData = json_decode(file_get_contents("php://input"), true);
             $matches[] = $inputData;

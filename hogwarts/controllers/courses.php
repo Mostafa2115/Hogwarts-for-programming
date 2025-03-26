@@ -7,7 +7,7 @@
         public function __construct($db)
         {
             if (!isset($_SESSION["username"])) {
-                header("Location: ../../../login");
+                header("Location: ../login");
                 exit;
             }
             $this->db = $db;
@@ -35,17 +35,17 @@
 
         public function showCourse($id)
         {
-            if($_SESSION['role'] === 'student')
-            {
-                echo "You are not allowed to access this page";
-                exit;
-            }
             $stmt = $this->db->prepare('SELECT * FROM courses WHERE id = :id');
             $stmt->execute(['id' => $id]);
             $course = $stmt->fetch(PDO::FETCH_OBJ);
 
             if (!$course) {
                 echo "NOT FOUND";
+                exit;
+            }
+            if($_SESSION['role'] === 'student')
+            {
+                echo "You are not allowed to access this page";
                 exit;
             }
 
