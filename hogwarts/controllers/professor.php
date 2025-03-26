@@ -14,6 +14,10 @@
         }
         public function addForm()
         {
+            if($_SESSION["role"] !== "admin"){
+                echo "You are not allowed to view this page!";
+                exit;
+            }
             require 'views/professors/add.view.php';
         }
         public function getProfessorProfile(){

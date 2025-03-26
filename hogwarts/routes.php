@@ -17,12 +17,12 @@ return [
         "/courses/add" => [CoursesController::class, "addForm"],
         "/challenges/add/{course_id}" => [ChallengeController::class, "addForm"],
         "/professor/add" => [ProfessorController::class, "addForm"],
+        "/logout" => [LoginController::class, "logout"],
 
     ],
     "post" => [
         "/signup" => [SignupController::class, "postSignup"],
         "/login" => [LoginController::class, "postLogin"],
-        "/logout" => [LoginController::class, "postLogout"],
         "/courses/add" => [CoursesController::class, "addCourse"],
         "/diagonalley" => [DiagonAlleyController::class, "buyItems"],
         "/professor" => [ProfessorController::class, "addProfessor"],
