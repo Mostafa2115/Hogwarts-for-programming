@@ -16,7 +16,8 @@
         {
             if($_SESSION['role'] !== 'student')
             {
-                echo "You are not allowed to access this page";
+                http_response_code(403);
+                require 'views/errors/403.php';
                 exit;
             }
             $items = $this->db->query('SELECT * FROM diagon_alley')->fetchAll(PDO::FETCH_OBJ);

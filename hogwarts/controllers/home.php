@@ -15,7 +15,8 @@
         public function getStudentProfile()
         {
             if($_SESSION["role"] !== "student"){
-                echo "You are not allowed to view this page!";
+                http_response_code(403);
+                require 'views/errors/403.php';
                 exit;
             }
             // student 
