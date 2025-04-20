@@ -15,14 +15,14 @@
         public function addForm()
         {
             if($_SESSION["role"] !== "admin"){
-                echo "You are not allowed to view this page!";
+                include __DIR__ . '/../views/errors/403.php'; 
                 exit;
             }
             require 'views/professors/add.view.php';
         }
         public function getProfessorProfile(){
             if($_SESSION["role"] === "student"){
-                echo "You are not allowed to view this page!";
+                include __DIR__ . '/../views/errors/403.php'; 
                 exit;
             }
             require "views/professors/home.view.php";
@@ -31,7 +31,7 @@
         public function addProfessor()
         {
             if ($_SESSION["role"] !== "admin") {
-                echo "You are not allowed to view this page!";
+                include __DIR__ . '/../views/errors/403.php'; 
                 exit;
             }
             if ($_SERVER["REQUEST_METHOD"] !== "POST") {
