@@ -15,6 +15,12 @@
 
         public function addForm()
         {
+            if($_SESSION['role'] === 'student')
+            {
+                http_response_code(403);
+                require 'views/errors/403.php';
+                exit;
+            }
             require 'views/courses/add.view.php';
         }
 
@@ -40,12 +46,14 @@
             $course = $stmt->fetch(PDO::FETCH_OBJ);
 
             if (!$course) {
-                echo "NOT FOUND";
+                http_response_code(404);
+                require 'views/errors/404.view.php';
                 exit;
             }
             if($_SESSION['role'] === 'student')
             {
-                echo "You are not allowed to access this page";
+                http_response_code(403);
+                require 'views/errors/403.php';
                 exit;
             }
 
@@ -56,7 +64,8 @@
         {
             if($_SESSION['role'] === 'student')
             {
-                echo "You are not allowed to access this page";
+                http_response_code(403);
+                require 'views/errors/403.php';
                 exit;
             }
             $stmt = $this->db->prepare('SELECT * FROM courses WHERE id = :id');
@@ -64,7 +73,8 @@
             $course = $stmt->fetch(PDO::FETCH_OBJ);
             
             if (!$course) {
-                echo "NOT FOUND";
+                http_response_code(404);
+                require 'views/errors/404.view.php';
                 exit;
             }
             
@@ -76,7 +86,8 @@
         {
             if($_SESSION['role'] === 'student')
             {
-                echo "You are not allowed to access this page";
+                http_response_code(403);
+                require 'views/errors/403.php';
                 exit;
             }
             $professor = $this->db->query("SELECT * FROM professors where username = '{$_SESSION['username']}'")->fetch(PDO::FETCH_OBJ);
@@ -94,7 +105,8 @@
         {
             if($_SESSION['role'] === 'student')
             {
-                echo "You are not allowed to access this page";
+                http_response_code(403);
+                require 'views/errors/403.php';
                 exit;
             }
             $stmt = $this->db->prepare('UPDATE courses SET course_name = :name, Description = :description WHERE id = :id');
@@ -111,7 +123,8 @@
         {
             if($_SESSION['role'] === 'student')
             {
-                echo "You are not allowed to access this page";
+                http_response_code(403);
+                require 'views/errors/403.php';
                 exit;
             }
             $stmt = $this->db->prepare('DELETE FROM courses WHERE id = :id');
@@ -125,7 +138,8 @@
         {
             if($_SESSION['role'] !== 'student')
             {
-                echo "You are not allowed to access this page";
+                http_response_code(403);
+                require 'views/errors/403.php';
                 exit;
             }
             $student = $this->db->query("SELECT * FROM students where username = '{$_SESSION['username']}'")->fetch(PDO::FETCH_OBJ);

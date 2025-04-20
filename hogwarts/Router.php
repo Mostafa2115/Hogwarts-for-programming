@@ -47,5 +47,5 @@ foreach ($routes[$method] as $route => $handler) {
 }
 
 http_response_code(404);
-echo "Not Found";
+require 'views/errors/404.php';
 ?>
