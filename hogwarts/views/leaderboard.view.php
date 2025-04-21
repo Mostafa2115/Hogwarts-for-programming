@@ -10,7 +10,7 @@
      
         <h1 class="text-3xl font-extrabold text-center text-yellow-400 py-8">Hogwarts House Leaderboard</h1>
     <?php foreach ($houses as $house): ?>
-        <div class="max-w-4xl mx-auto text-white rounded-2xl mt-6 space-y-4">
+        <div class="max-w-4xl mx-4 md:mx-auto text-white rounded-2xl mt-6 space-y-4">
         <!-- Gryffindor -->
         <div class="flex items-center justify-between p-4 rounded-lg  
          <?php 

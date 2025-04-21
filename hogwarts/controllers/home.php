@@ -15,8 +15,7 @@
         public function getStudentProfile()
         {
             if($_SESSION["role"] !== "student"){
-                http_response_code(403);
-                require 'views/errors/403.php';
+                include __DIR__ . '/../views/errors/403.php'; 
                 exit;
             }
             // student 

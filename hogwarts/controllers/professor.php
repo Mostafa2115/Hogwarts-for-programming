@@ -15,16 +15,14 @@
         public function addForm()
         {
             if($_SESSION["role"] !== "admin"){
-                http_response_code(403);
-                require 'views/errors/403.php';
+                include __DIR__ . '/../views/errors/403.php'; 
                 exit;
             }
             require 'views/professors/add.view.php';
         }
         public function getProfessorProfile(){
             if($_SESSION["role"] === "student"){
-                http_response_code(403);
-                require 'views/errors/403.php';
+                include __DIR__ . '/../views/errors/403.php'; 
                 exit;
             }
             require "views/professors/home.view.php";
@@ -33,8 +31,7 @@
         public function addProfessor()
         {
             if ($_SESSION["role"] !== "admin") {
-                http_response_code(403);
-                require 'views/errors/403.php';
+                include __DIR__ . '/../views/errors/403.php'; 
                 exit;
             }
             if ($_SERVER["REQUEST_METHOD"] !== "POST") {

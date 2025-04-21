@@ -47,5 +47,6 @@ foreach ($routes[$method] as $route => $handler) {
 }
 
 http_response_code(404);
-require 'views/errors/404.php';
+include __DIR__ . '/views/errors/404.php';
 ?>
+<!-- http://localhost:8000/professor/add -->
