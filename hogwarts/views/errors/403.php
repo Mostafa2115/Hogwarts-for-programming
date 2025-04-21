@@ -1,5 +1,5 @@
 <?php
-    $header = 'Page Not Found';
+    $header = 'unAuthorized Access';
     require __DIR__ . '/../layouts/header.view.php';
 ?>
 <div class="text-[#d3a840] bg-black min-h-screen flex items-center justify-center" style="background-image: url(http://www.transparenttextures.com/patterns/brick-wall-dark.png);">
