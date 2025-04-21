@@ -6,7 +6,7 @@ class Singleton {
     public static function getDatabase() {
         if (!self::$db) {
             $config = require 'Config.php';
-            $db = Database::connect($config);  // Updated: passing the entire $config array
+            $db = Database::connect($config['database']);  // Updated: passing the entire $config array
             self::$db = $db;
         }
         return self::$db;

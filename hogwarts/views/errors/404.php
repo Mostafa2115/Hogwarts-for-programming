@@ -16,14 +16,14 @@
       </span>
       is messing with us again?
     </p>
-    <?php if ($_SESSION["role"] === "student") 
+    <?php if (isset($_SESSION["role"]) && $_SESSION["role"] === "student") 
     {?>
-                            <a href="/" class="snitch rounded-md snitch:hover text-[#d3a840] hover:bg-[#634d17] hover:text-white hover:bg-opacity-50 px-3 py-2 text-sm font-medium"> Return to Hogwarts
+      <a href="/" class="snitch rounded-md snitch:hover text-[#d3a840] hover:bg-[#634d17] hover:text-white hover:bg-opacity-50 px-3 py-2 text-sm font-medium"> Return to Hogwarts
 
-                            </a>
-                        <?php } else { ?>
-                            <a href="/professor/home" class="snitch rounded-md snitch:hover text-[#d3a840] hover:bg-[#634d17] hover:text-white hover:bg-opacity-50 px-3 py-2 text-sm font-medium">Return to Hogwarts
-                            </a>
-                        <?php } ?> 
+      </a>
+      <?php } else { ?>
+      <a href="/professor/home" class="snitch rounded-md snitch:hover text-[#d3a840] hover:bg-[#634d17] hover:text-white hover:bg-opacity-50 px-3 py-2 text-sm font-medium">Return to Hogwarts
+      </a>
+      <?php } ?> 
   </div>
 </div>
