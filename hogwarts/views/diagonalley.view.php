@@ -25,7 +25,6 @@
                 <div class="flex justify-center mt-2">
                 <form action="../diagonalley" method="POST">
     <input type="hidden" name="item_id" value="<?= htmlspecialchars($item->item_id) ?>">
-    <input type="hidden" name="student_id" value="<?= htmlspecialchars($item->student_id) ?>"> 
     <button type="submit" class="flex items-center text-white py-2 rounded-lg shadow-lg hover:bg-[#b38a30] transition relative group overflow-hidden">
         <img class = "size-4" src="https://img.icons8.com/dusk/64/fantasy.png" alt="fantasy"/><span class="text-sm ml-2">Accio Purchase!</span>
                  <!-- Magic Glow Effect -->

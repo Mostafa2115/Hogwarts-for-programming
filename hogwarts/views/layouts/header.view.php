@@ -10,10 +10,14 @@
     <style>
         @font-face {
             font-family: 'HarryP';
-            src: url('/public/fonts.php') format('truetype');    font-weight: normal;
+            src: url('/public/fonts.php') format('truetype');
+            font-weight: normal;
             font-style: normal;
         }
 
+        * {
+            font-family: 'HarryP', sans-serif;
+        }
         body {
             cursor: url('https://img.icons8.com/color/32/snitch.png') 2 2, auto;
             background-image: url(http://www.transparenttextures.com/patterns/brick-wall-dark.png);
@@ -22,16 +26,6 @@
             display: flex;
             flex-direction: column;
         }
-
-        .harry-font {
-            font-family: 'HarryP', sans-serif;
-            letter-spacing: 1.5px; 
-            line-height: 1.5;
-        }
-        .snitch:hover {
-             cursor: url('https://img.icons8.com/color/32/snitch.png'), auto;
-        }
     </style>
 </head>
-<body class = "harry-font">
-   
+<body>

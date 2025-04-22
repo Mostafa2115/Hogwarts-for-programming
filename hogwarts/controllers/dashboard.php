@@ -16,7 +16,8 @@
         {
             if($_SESSION['role'] === 'student')
             {
-                echo "You are not allowed to access this page";
+                http_response_code(403);
+                require 'views/errors/403.php';
                 exit;
             }
             $students = $this->db->query('SELECT s.id,s.name,s.country_name,W.wood,W.core,H.house_name FROM students s 
